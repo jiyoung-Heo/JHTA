@@ -1,0 +1,32 @@
+<<jsp 스코프(***)>>
+- http프로토콜은 무상태프로토콜이므로 상태값을 저장할 수 없다. 이때 스코프를 이용하여 상태값을 유지할 수 있다.
+
+1. application
+- 모든 서블릿, jsp에서 공유하는 영역
+- 웹서버가 종료될때까지 유효한 영역(종료시점이 가장 김)
+- 값을 저장할때는 application.setAttribute("이름",객체);
+  값을 꺼내올때는 Object value = application.getAttribute("이름");
+ 
+2. session(***)
+- 웹브라우져가 종료될때까지 또는 일정시간(세션유지시간)동안 유효한 영역
+- 값을 저장할때는 application.setAttribute("이름",객체);
+  값을 꺼내올 때는 Object value = session.getAttribute("이름");
+- 보통 사용자에 대한 정보를 담음.
+- 세션유지시간설정
+  방법1) web.xml에 설정하기-분단위
+ 	<session-config>
+ 		<session-timeout>30</session-timeout>
+ 	</session-config>
+ 	
+  방법2) 코드에서 설정하기 - 초단위
+ 	session.setMaxInactiveInterval(2*60);
+  
+3. request(***)
+- 클라이언트에 응답할때까지 유효한 영역
+- 클라이언트의결과에 뭔가가 출력되면 응답된것이다.
+- 값을 저장할때는 request.setAttribute("이름",객체);
+  값을 꺼내올 때는 Object value = request.getAttribute("이름");
+  
+4. page
+- 하나의 페이지에서만 유효
+- 기본값으로 지정되어 있음
