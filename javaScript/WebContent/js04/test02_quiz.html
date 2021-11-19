@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test02_quiz.html</title>
+<style type="text/css">
+	*{margin:0px; border:0px;}
+	
+	/*
+	position absolute일때 overflow: hidden이면 이 사이즈 밖으로 나가는부분은 숨겨준다.
+	*/
+	
+	#box{width:400px;height:400px; border: 2px solid green; position: absolute; overflow: hidden;
+		left:200px; top:200px;}
+		
+	#box img {position: absolute;}
+</style>
+<script type="text/javascript">	
+	function setXY(){
+		let img1=document.getElementsByTagName("img")[0];
+		img1.style.width="200px";
+		img1.style.height="200px";
+	}
+	
+	function divClick(e) {
+		let box=document.getElementById("box");
+		let offsetX=box.offsetLeft;//left에서 얼마나 떨어져있는지
+		let offsetY=box.offsetTop;//top에서 얼마나 떨어져있는지
+		let x = e.clientX-offsetX;
+		let y = e.clientY-offsetY;
+		//document.getElementsByTagName("img")[0].style.left=x+"px";
+		//document.getElementsByTagName("img")[0].style.top=y+"px";
+		
+		//클릭한부분이 그림의 중간으로 가게(css를 준 경우. css는 html에서 불러올 수 없으므로 funtion을 통해서 지정해주고 해야함.)
+		let img = document.getElementsByTagName("img")[0];
+		let centerX=parseInt(img.style.width)/2;
+		let centerY=parseInt(img.style.height)/2;
+		document.getElementsByTagName("img")[0].style.left=(x-centerX)+"px";
+		document.getElementsByTagName("img")[0].style.top=(y-centerY)+"px";
+		
+		/*
+		혼자해본부분
+		setXY function 지정 안해주고.css에서 크기 지정안해주고 할때.
+		let centerX=document.getElementsByTagName("img")[0].width;
+		let centerY=document.getElementsByTagName("img")[0].height;
+		document.getElementsByTagName("img")[0].style.left=(x-centerX/2)+"px";
+		document.getElementsByTagName("img")[0].style.top=(y-centerY/2)+"px";
+		*/
+	}
+</script>
+</head>
+<body onload="setXY()">
+<!-- div를 출력하면 이미지가 출력한 위치에 보이도록 해 보세요. -->
+<div id="box" onclick="divClick(event)">
+	<img src = "images/1.png">
+</div>
+</body>
+</html>

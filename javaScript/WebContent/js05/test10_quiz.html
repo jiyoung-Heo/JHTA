@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//생성자방식으로 학생번호 국어 영어점수를 전달받아 총점 평균 구해서 출력하는 기능의 객체를 만들고 사용해 보세요.
+	function Student(num,kor,eng){
+		this.num=num;
+		this.kor=kor;
+		this.eng=eng;
+	}
+	Student.prototype.showStud=function(){
+		console.log("num: "+this.num);
+		console.log("kor: "+this.kor);
+		console.log("eng: "+this.eng);
+		console.log("ave: "+(this.kor+this.eng)/2)
+		console.log("tot: "+(this.kor+this.eng))
+	}
+	let stu = new Student(1,100,90);
+	stu.showStud();
+</script>
+</head>
+<body>
+
+</body>
+</html>

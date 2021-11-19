@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>test08_array.html</title>
+</head>
+<body>
+<input type="button" value="이미지 변경" onclick="change1()"><br>
+<img src = "images/1.png">
+<img src = "images/2.png">
+<img src = "images/3.png">
+<br>
+<!-- name속성이 나중에 jsp에서 연동할때 더 사용할거임 -->
+<label>주소<input type="text" name="addr"></label>
+<label>상세주소<input type="text" name = "addr"></label>
+<input type="button" value="확인" onclick="showAddr()">
+<div id="box">
+
+</div>
+<script type="text/javascript">
+	function change1(){
+		//태그명이 img인 요소를 배열로 얻어옴
+		var img = document.getElementsByTagName("img");
+		//배열 첨자 무조건 써야한다.
+		img[0].src="images/4.png";
+		img[1].src="images/5.png";
+		img[2].src="images/6.png";
+	}
+	function showAddr(){
+		//name속성이 addr인 요소를 배열로 얻어옴
+		var addr=document.getElementsByName("addr");
+		var s=addr[0].value +" "+addr[1].value;
+		var div = document.getElementById("box");
+		div.innerHTML="입력한주소: "+s;
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0430_home01.html</title>
+<style type="text/css">
+	#wrap{height:300px; width:500px; border:2px solid red; text-align: center;}
+</style>
+<script type="text/javascript">
+	var num = 4;
+	function changeImg(){
+		var img1=document.getElementById("img1");
+		var img2=document.getElementById("img2");
+		var img3=document.getElementById("img3");
+			console.log(num/3);
+		if(num%3==1){
+			img1.src = "images/00"+num+".jpg";
+		}
+		if(num%3==2){
+			img2.src = "images/00"+num+".jpg";
+		}
+		if(num%3==0){
+			img3.src = "images/00"+num+".jpg";
+		}
+		num++;
+		if(num==7){
+			num=1;
+		}
+	}
+	setInterval(changeImg, 1_000);
+</script>
+</head>
+<body>
+<div id="wrap">
+	<h1>현재 인기 상영작</h1>
+	<img src = "images/001.jpg" id = "img1">
+	<img src = "images/002.jpg" id = "img2">
+	<img src = "images/003.jpg" id = "img3">
+</div>
+</body>
+</html>

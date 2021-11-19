@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test04_event.html</title>
+</head>
+<body>
+<input type="button" value="클릭1" id="btn1">
+<input type="button" value="클릭2" id="btn2">
+
+</body>
+<script type="text/javascript">
+	//요새는 js,css,html다 분리하는추세이다. onclick html에 안써주고 가져와서 js에서 사용해준다.
+	let btn2=document.getElementById("btn2");
+	//이벤트 하나밖에 연결 못함
+	btn2.onclick=showMsg;
+	btn2.onclick=fun1;
+	
+	var btn1=document.getElementById("btn1");
+	//btn1.addEventListner('이벤트명',호출할함수명)
+	//이벤트 여러개 연결 가능/버튼 한번만누르고 그다음부터는 안되게 remove가능
+	btn1.addEventListener('click',showMsg);
+	btn1.addEventListener('click',fun1);
+
+	function showMsg(){
+		alert("버튼클릭!!");
+	};
+	function fun1(){
+		alert("button click!!");
+		btn1.removeEventListener('click',fun1);//이벤트리스너 삭제하기
+	}
+	
+	
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test07_DOM.html</title>
+<script>
+	function goPrev(){
+		//이전페이지로이동
+		//ex)로그인해서 클릭했을때 jsp로 넘어갔는데 로그인아이디가 틀리면 전 화면으로 돌아가야함 그때 사용
+		history.go(-1);
+	}
+	function goNext(){
+		//다음페이지로이동
+		history.go(1);
+	}
+	function goNaver(){
+		//로그인버튼을누르면 jsp에서 로그인검사한다. 로그인이완료가되었을때 넘어갈 페이지 지정. 
+		location.href="http://www.naver.com";
+	}
+	setTimeout(function(){
+		//사용자의지와상관없이 페이지를 이동해야할 경우 사용
+		location.href="http://www.daum.net";
+	}, 2_000);
+</script>
+	
+</head>
+<body>
+<input type="button" value="이전페이지" onclick="goPrev()">
+<input type="button" value="다음페이지" onclick="goNext()">
+<input type="button" value="네이버로 이동" onclick="goNaver()">
+<h1>2초후에 변경된 홈페이지로 이동합니다</h1>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test04.html</title>
+<script type="text/javascript">
+	//html요소가 javascript객체로 메모리에 모두 올라오면 실행해라
+	//스크립트 밑에 쓰는게 더 속도가 빠르긴 함.
+	window.onload=function(){
+		var btn1=document.getElementById("btn1");
+		btn1.onclick=function(e){ //이름없는 함수 사용
+			alert("버튼클릭!");
+			e.target.value="버튼1";
+		};
+		var btn2=document.getElementById("btn2");
+		btn2.addEventListener('click', function(e) {
+			alert("버튼을 클릭했어요");
+		});
+	}
+</script>
+</head>
+<body>
+<input type="button" value="btn1" id="btn1">
+<input type="button" value="btn2" id="btn2">
+</body>
+</html>

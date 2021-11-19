@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test02.html</title>
+<script type="text/javascript">
+	console.log("스크립트 실행");
+	function showResult(){
+		console.log("메소드 실행")
+		var num = document.getElementById("num1");
+		var id = document.getElementById("r");
+		// parseInt: 입력된 value값을 정수(int)로 얻어오기
+		var n = parseInt(num.value);
+		if(n%2==0){
+			alert("짝수");
+			id.value= n+"은 짝수 입니다.";
+		}else{
+			alert("홀수");
+			id.value= n+"은 홀수 입니다.";
+		}
+	}
+</script>
+</head>
+<body>
+<label>정수입력<input type="text" id="num1"></label>
+<input type="button" value="판별" onclick="showResult()"><br>
+<input type="text" id="r" value="결과"><br>
+</body>
+</html>

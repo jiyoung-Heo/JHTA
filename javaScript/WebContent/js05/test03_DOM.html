@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test03_DOM.html</title>
+</head>
+<body>
+<div>
+	<img src ="images/1.png">
+	<input type="button" value="노드순회" id="btn1">
+</div>
+<script type="text/javascript">
+	var btn1 = document.getElementById("btn1");
+	btn1.onclick=function(){
+		//root엘리면트 얻어오기(여기서는 html)
+		var root = document.documentElement;
+		console.log(root.tagName);
+		var first=root.firstElementChild;
+		console.log("firstChild:"+first.tagName);
+		var last = root.lastElementChild;
+		console.log("lastChild:"+last.tagName);
+		var div = last.firstElementChild;
+		console.log("div:"+div.tagName);
+		div.style.backgroundColor="yellow";
+		var img = div.firstElementChild;
+		img.src="images/2.png";
+		console.log("img:"+img.tagName);
+		var parent = img.parentElement;//부모요소
+		console.log("parent:"+parent.tagName);
+		parent.style.border="3px solid green";
+		var nextE=img.nextElementSibling;//이웃하는 다음 형제요소(input)
+		console.log(nextE.tagName);
+		nextE.value="버튼...!";
+		var prevE = nextE.previousElementSibling;//이웃하는 이전 형제요소(img)
+		prevE.style.backgroundColor = "red";
+	}	
+</script>
+</body>
+</html>

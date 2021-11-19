@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test04_setTimeout.html</title>
+<style type="text/css">
+	#div2 {width:500px;height:330px; background-image: url('images/1.jpg'); background-size: 100% 100%;}
+	#div2 h1{font-size:40px; text-shadow: 0px 0px 10px black; color: white; text-align: center;}
+</style>
+</head>
+
+<body>
+<div id="div1"></div>
+<div id="div2">
+	<h1>My IMAGE...</h1>
+</div>
+<div>
+	<!-- setTimeout을 사용해서 img1의 이미지가 1.png/2.png로 번갈아가면서 보이게 해 보세요 -->
+	<img src = "images/1.png" id="img1">
+</div>
+<script type="text/javascript">
+	setTimeout(msg,1000);//1초후 msg함수가 딱한번 자동 호출됨
+	function msg(){
+		var div1=document.getElementById("div1");
+		div1.innerHTML="<h1> hello!!</h1>";
+	}
+	var url=["url('images/2.jpg')","url('images/3.jpg')","url('images/1.jpg')"];
+	var index=0;
+	function changeBackImg(){
+		var div2=document.getElementById("div2");
+		//div2.style.backgroundImage=url[index++];
+		//if(index==url.length) index=0;
+		div2.style.backgroundImage=url[index++ % url.length];
+		setTimeout(changeBackImg,1000);
+	}
+	setTimeout(changeBackImg,1000);
+	var a = 2;
+	function changeImg(){
+		var img1 = document.getElementById("img1");
+		img1.src="images/"+ a +".png";
+		a++;
+		if (a==3){
+			a=1;
+		}
+		setTimeout(changeImg,1_000);
+	}
+	setTimeout(changeImg,1_000);
+</script>
+</body>
+</html>

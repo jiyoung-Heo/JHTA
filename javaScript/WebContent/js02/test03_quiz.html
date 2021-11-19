@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>quiz01.html</title>
+<style type="text/css">
+	#result{display: block;}
+</style>
+<script type="text/javascript">
+	function showBox(){
+		var width=document.getElementById("width");
+		var height=document.getElementById("height");
+		var color=document.getElementById("color");
+		var result=document.getElementById("result");
+		result.style.width=width.value+"px";
+		result.style.height=height.value+"px";
+		result.style.backgroundColor=color.value;
+	}
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div>
+		<label>가로<input type="text" id="width"></label><br>
+		<label>세로<input type="text" id="height"></label><br>	
+		<label>색상<input type="text" id="color"></label><br>		
+		<input type="button" value="적용" onclick="showBox()">
+	</div>
+	<label id="result"></label>
+</div>
+</body>
+</html>

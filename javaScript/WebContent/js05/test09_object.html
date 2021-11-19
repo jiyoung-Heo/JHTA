@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test09_object.html</title>
+<script type="text/javascript">
+	//방법2.생성자방식-재사용가능
+	//생성자는 다른 함수와 구분하기 위해 시작문자 대문자 사용.
+	function Member(id,pwd,email){
+		this.id = id;
+		this.pwd=pwd;
+		this.email=email;
+	}
+	//prototype: 멤버함수를 정의(등록)하기
+	Member.prototype.getId=function(){
+		return this.id;
+	}
+	Member.prototype.getPwd=function(){
+		return this.pwd;
+	}
+	Member.prototype.getEmail=function(){
+		return this.email;
+	}
+	Member.prototype.showInfo=function(){
+		console.log("아이디: "+this.id);
+		console.log("비밀번호: "+this.pwd);
+		console.log("이메일: "+this.email);
+	}
+	var mem1= new Member("hello","1234","hello@");
+	mem1.showInfo();
+	var mem2= new Member("hello1","12341","hello@1");
+	mem2.showInfo();
+</script>
+</head>
+<body>
+
+</body>
+</html>

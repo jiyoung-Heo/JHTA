@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test12_js.html</title>
+<!-- 스크립트 파일 포함하기 -->
+<script type="text/javascript" src="js/vallidator.js"></script>
+<script type="text/javascript">
+	function check(){
+		var id = document.getElementById("id").value;
+		if(isEmpty(id)){
+			alert('아이디를 입력하세요');
+			return false;
+		}
+		var pwd = document.getElementById("pwd").value;
+		if(isEmpty(pwd)){
+			alert( '비밀번호를 입력하세요');
+			return false;
+		}
+		if(!isNumber(pwd)){
+			alert('비밀번호는 숫자로만 입력해주세요');
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+<form action="join.jsp" onsubmit="return check()">
+	아이디(*) <input type="text" name ="id" id="id"><br>
+	비밀번호(*) <input type="password" name="pwd" id="pwd"><br>
+	이메일<input type="email" name="email"><br>
+	<input type="submit" value="회원가입">
+</form>
+</body>
+</html>

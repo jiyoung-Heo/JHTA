@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test02_quiz.html</title>
+<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded', function(e) {
+		let name = document.getElementById("name");
+		let list = document.getElementById("list");
+		n=1;
+		insertBtn.addEventListener('click', function(e) {
+			let insertName = document.createElement("option");
+			insertName.value= name.value;
+			insertName.text= name.value;
+			list.add(insertName);
+		});
+		
+		deleteBtn.addEventListener('click', function(e) {
+			var n = list.selectedIndex;//선택한인덱스값 얻어오기
+			list.remove(n);
+			if(n==-1){
+				alert('삭제할 이름을 선택하세요!');
+			}
+			/*
+			let len = list.options.length;
+				console.log(list.value);
+			for (let i =len-1; i >=0; i--) {
+				let num = list.item(i).value;
+				console.log(list.item(i).value);
+				console.log(list.value);
+				if(num==list.value){
+					list.remove(i);//i번째 옵션객체 지우기
+				}
+			}
+			*/
+		});
+	});
+</script>
+</head>
+<body>
+<div>
+	<label>사원이름<input type="text" id = "name"></label>
+	<input type="button" value="추가" id ="insertBtn">
+	<br>
+	<h1>신입사원명단</h1>
+	<select id ="list" size="5" style="width:100px">
+		<option >홍길동</option>
+	</select>
+	<br>
+	<input type="button" value="삭제" id="deleteBtn">
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0428_home03.html</title>
+<script type="text/javascript">
+	var dog=document.getElementsByTagName("img");
+	function dogs(a){
+		for (var i = 0; i < dog.length; i++) {
+			dog[i].style="display:none";
+		}
+			dog[a].style="display:block";
+	}
+</script>
+</head>
+<body>
+	<label>강아지1<input type="radio" id = "dog1" name = "dog" onclick="dogs(0)"></label>
+	<label>강아지2<input type="radio" id = "dog2" name = "dog" onclick="dogs(1)"></label>
+	<label>강아지3<input type="radio" id = "dog3" name = "dog" onclick="dogs(2)"></label>
+	<img src="images/5.png" style="display: none;">
+	<img src="images/6.png" style="display: none;">
+	<img src="images/7.png" style="display: none;">
+</body>
+</html>

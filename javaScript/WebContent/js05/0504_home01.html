@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0504_home01.html</title>
+<style type="text/css">
+	*{margin:0px;padding:0px;}
+	#wrap { width:1000px; height:1000px; margin: 50px 0px 0px 50px;}
+	#box{width:1000px; height:700px; border: 2px solid black;}
+	#grade{float: left;}
+	#start{float:right;}
+</style>
+<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded', function(e) {
+		let aim = document.getElementById("aim");
+		let score = document.getElementById("score");
+		let startGame = document.getElementById("startGame");
+		let grade = document.getElementById("grade");
+		let scoreTxt=0;
+		let timeCheck = document.getElementById("timeCheck");
+		let setTime = document.getElementById("setTime");
+		startGame.addEventListener('click',time);
+		
+		aim.addEventListener('click', function(e) {
+			if(aim.style.backgroundColor=='red'){
+				scoreTxt+=10;
+				score.value = scoreTxt;
+				aim.style.backgroundColor='gray';
+			}
+		});
+		function time(){
+			cnt=setTime.value;
+			startGame.disabled=true;
+			timeCheck.value=cnt;
+			score.value=0;
+			switch (grade.value) {
+			case '1레벨':
+				size=100;
+				break;
+			case '2레벨':
+				size=70;
+				break;
+			case '3레벨':
+				size=50;
+				break;
+			case '4레벨':
+				size=30;
+				break;
+			}
+			interval = setInterval(start, 1_000);
+			aim.style.width=size+'px';
+			aim.style.height=size+'px';
+			setPosition();
+			setTimeout(end,setTime.value*1000);
+		}
+
+		function start(){
+			setPosition();
+			aim.style.backgroundColor='red';
+			cnt-=1;
+			timeCheck.value=cnt;
+			console.log(timeCheck.value);
+		}
+
+		function setPosition(){
+			aim.style.top = Math.random()*(700-size)+'px';
+			aim.style.left = Math.random()*(1000-size)+'px';
+		}
+
+		function end(){
+			clearInterval(interval);
+			aim.style.top ='0px';
+			aim.style.left ='0px';
+			startGame.disabled=false;
+			alert("timeOver~~\n"+score.value+"점 획득하셨습니다.");
+			scoreTxt=0;
+			let now = new Date();
+			let addList = document.createElement("div");
+			let time = now.getHours()+"시 "+now.getMinutes()+"분"+now.getSeconds()+"초 ";
+			addList.innerHTML=time+"설정한 시간: "+setTime.value+"초 "+grade.value+" : "+score.value+"점\n";
+			list.appendChild(addList);
+			score.value=0;
+		}
+	});
+</script>
+</head>
+<body>
+<div id = "wrap">
+	<div>
+		<div>
+		<select id = "grade">
+			<option>1레벨</option>
+			<option>2레벨</option>
+			<option>3레벨</option>
+			<option>4레벨</option>
+		</select>
+		<label style="margin-left: 10px;">시간설정: <input type="number" id="setTime"></label><label>초</label>
+		<br>
+		<input type="button" value="시작" id="startGame">
+		<br>
+		<label>점수<input type="text" id="score"></label>
+		<label id="second">남은시간<input type="text" id="timeCheck"></label>
+		</div>
+	</div>
+	<div id = "box" style="position: absolute;">
+		<div id = "aim" style="position:absolute; background-color: red;"></div>
+	</div>
+	<div type="button" id="list" style=" margin-top:730px;"><h3>--결과내역--</h3></div>
+</div>
+</body>
+</html>

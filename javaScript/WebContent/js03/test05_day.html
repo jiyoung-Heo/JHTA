@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test05_day.html</title>
+</head>
+<body>
+<div id="date1"></div>
+<!-- 1초에 한번씩 현재시간을 time1에 보이도록 해보세요. -->
+<div id="time1"></div>
+<script type="text/javascript">
+	var d = new Date();//현재 날짜와 시간에 대한 정보를 갖는 객체
+	console.log(d);
+	var str = d.getFullYear()+"년 "+(d.getMonth()+1)+"월 "+d.getDate()+"일";
+	var v1 = d.getDay();//요일 일요일~토요일 0~6
+	switch (v1) {
+	case 0:	str+=" 일요일"; break;
+	case 1:str+=" 월요일";break;
+	case 2:str+=" 화요일";break;
+	case 3:	str+=" 수요일";break;
+	case 4:str+=" 목요일";break;
+	case 5:	str+=" 금요일";break;
+	case 6:str+=" 토요일";break;
+	}
+	document.getElementById("date1").innerHTML=str;
+	time();
+	function time(){
+		var dd = new Date();
+		var strTime=dd.getHours()+"시 "+dd.getMinutes()+"분 "+dd.getSeconds()+"초";
+		document.getElementById("time1").innerHTML=strTime;
+	}
+	setInterval(time, 1_000);
+</script>
+</body>
+</html>

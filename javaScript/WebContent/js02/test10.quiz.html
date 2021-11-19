@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>test10.quiz.html</title>
+<script>
+	function changeColor(){
+		var box = document.getElementById("box");
+		var color = document.getElementsByName("bgcolor");
+		box.style.backgroundColor=color[0].value;
+	}
+</script>
+</head>
+<body>
+배경색선택
+<select name="bgcolor">
+	<option value="yellow">노랑</option>
+	<option value="red">빨강</option>
+	<option value="blue">파랑</option>
+	<option value="green">초록</option>
+</select>
+<!-- 버튼을 클릭하면 선택된 색상으로 box가 적용되도록 해보세요 -->
+<input type="button" value="적용" onclick="changeColor()">
+<div id="box" style="width:300px; height:200px; border:2px solid gray">
+</div>
+</body>
+</html>

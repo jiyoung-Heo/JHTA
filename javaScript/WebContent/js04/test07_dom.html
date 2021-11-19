@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test07_dom.html</title>
+<script type="text/javascript">
+	window.onload = function(){
+		let btn1 = document.getElementById("btn1");
+		let btnList = document.getElementById("btnList");
+		let num=1;
+		btn1.addEventListener('click', function(e) {
+			let btn=document.createElement("input");
+			btn.type="button";
+			btn.value="버튼"+	num++;
+			btnList.appendChild(btn);
+			//버튼을 클릭했을때 xxx버튼을 클릭했군요 라고 alert로 출력해보세요
+			btn.addEventListener('click', function(e) {
+				//alert(btn.value+"번 버튼을 클릭했군요")
+				//this. 자기자신의 객체->여기서는 btn
+				alert(this.value+"를 클릭했어요");
+			});
+		});
+		let cnt=1;
+		let btn2 = document.getElementById("btn2");
+		btn2.addEventListener('click', function(e) {
+			let btn3= document.createElement("button");
+			let text=document.createTextNode("button"+ cnt++);
+			btn3.appendChild(text);
+			btnList.appendChild(btn3);
+		});
+	}
+</script>
+</head>
+<body>
+<input type="button" value = "버튼추가1" id="btn1">
+<input type="button" value = "버튼추가2" id="btn2">
+<!-- 추가버튼을 누르면 버튼을 생성해서 div#btnlist에 추가되도록 해보세요 -->
+<div id = "btnList"></div>
+</body>
+</html>

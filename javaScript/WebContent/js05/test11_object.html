@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test10_object.html</title>
+<script type="text/javascript">
+	//방법3. 빈 object생성
+	var shape={};//빈 객체 만들기
+	shape.width=100;
+	shape.height=50;
+	shape.getArea=function(){
+		return this.width*this.height;
+	};
+	console.log("가로길이: "+shape.width);
+	console.log("세로길이: "+shape.height);
+	console.log("넓이: "+shape.getArea());
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	 window.onload=function(){
+	      var btn1=document.getElementById("btn1");
+	      var list=document.getElementById("list");
+	      btn1.addEventListener('click',function(){
+	         let item=prompt("어떤 과일을 추가할까요?","사과");
+	         /*
+	         let opt=document.createElement("option");
+	         //opt.value=item; 아래와동일
+	         opt.setAttribute("value",item);//(속성이름,설정값)
+	         let text=document.createTextNode(item);
+	         opt.appendChild(text);
+	         list.appendChild(opt);
+	         */
+	         let opt=document.createElement("option");
+	         opt.value=item;
+	         opt.text=item;
+	         //list.appendChild(opt);
+	         list.add(opt);
+	      });
+	      btn2.addEventListener('click', function(e) {
+	      	var length=list.options.length;//option의 갯수
+	      	for (let i =length-1; i >0; i--) {
+				list.remove(i);//i번째 옵션객체 지우기
+			}
+	      });
+	   };
+</script>
+</head>
+<body>
+<input type="button" value="항목추가" id="btn1">
+<input type="button" value="항목삭제" id="btn2">
+<br>
+<select id ="list" size="5" style="width:100px">
+	<option value="none">과일</option>
+	<option value="포도">포도</option>
+</select>
+</body>
+</html>

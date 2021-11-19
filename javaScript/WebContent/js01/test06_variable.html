@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_variable</title>
+<script type="text/javascript">
+/*
+ * [ 변수 선언 ] 아직까지는 상위버전에서만 let,const동작함..
+ * var: 적용범위->함수
+ * let: 적용봄위->선언블록
+ * const: 상수선언
+ */
+	function test1(){
+		console.log("a: "+a);
+		for (var i = 1; i <= 10; i++) {
+			var a= 100;
+			console.log(i);
+		}
+		console.log("a: "+a);//var로 선언된 변수는 블록을 벗어나도 사용가능
+		console.log("i: "+i);
+	}
+	//test1();
+	
+	function test2(){
+		const b=20;
+		console.log("b"+b);
+		//b=30 const는 값을 변경 못함
+		for (let i = 1; i <= 10; i++) {
+			let a= 100;
+			console.log(i);
+		}
+		//console.log("a: "+a); =>let으로 선언되었으므로 블록을 벗어나면 사용못함
+		//console.log("i: "+i);
+	}
+	test2();
+</script>
+</head>
+<body>
+
+</body>
+</html>

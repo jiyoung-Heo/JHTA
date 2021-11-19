@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test03_quiz.html</title>
+<script type="text/javascript">
+	function showResult(){
+		var n1 = parseInt(document.getElementById("n1").value);
+		var n2 = parseInt(document.getElementById("n2").value);
+		//var n3 = document.getElementById("n3");
+		//n3.value = n1Use+n2Use;
+		document.getElementById("n3").value = n1+n2;
+	}
+	
+</script>
+</head>
+<body>
+<!-- 입력된 두 수의 합을 구해서 n3에 출력되도록 해보세요 -->
+<input type="text" id="n1">+
+<input type="text" id="n2">=
+<input type="text" id="n3">
+<br>
+<input type="button" value="합구하기" onclick="showResult()">
+</body>
+</html>

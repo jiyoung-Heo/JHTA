@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0503_home01.html</title>
+<style type="text/css">
+	img{border: 2px solid orange;}
+</style>
+<script>
+	window.onload=function(){
+		let n=6;
+		let imglist = document.getElementById("imglist")
+		next.addEventListener('click', function(e) {
+			imglist.removeChild(imglist.lastElementChild);
+			let img = document.createElement("img");
+			img.src = "images/"+ n-- +".png";
+			imglist.prepend(img);
+			if(n==0) n=10;
+		});
+		back.addEventListener('click', function(e) {
+			imglist.removeChild(imglist.firstElementChild);
+			let img2 = document.createElement("img");
+			img2.src = "images/"+ n++ +".png";
+			imglist.appendChild(img2);
+			if(n==11) n=1;
+		});
+	}
+</script>
+</head>
+<body>
+<input type="button" value=">>" id="next">
+<input type="button" value="<<" id="back"> <br>
+<div id = "imglist"><img src= "images/1.png"><img src= "images/2.png"><img src= "images/3.png"><img src= "images/4.png"><img src= "images/5.png"></div>
+</body>
+</html>

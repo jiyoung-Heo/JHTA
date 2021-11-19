@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0503_home02.html</title>
+<style>
+	#dollShop{width:70px; height:200px;}
+	#choiceImg{position: absolute; left:70px; top : 10px;}
+	#inputImg{margin-top: 30px;}
+</style>
+<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded', function(e) {
+		let choiceImg = document.getElementById("choiceImg");
+		let showImg = document.getElementById("showImg");
+		dollShop.addEventListener('click', function(e) {
+			if(choiceImg.children.length!=0){
+				choiceImg.removeChild(choiceImg.firstChild);
+			}
+			let img = document.createElement("img");
+			img.src = "images/"+e.target.value+".png";
+			choiceImg.appendChild(img);
+		});
+		
+		inputImg.addEventListener('click', function(e) {
+			let addImg = document.createElement("img");
+			addImg.src = "images/"+dollShop.value+".png";
+			showImg.appendChild(addImg);
+		});
+		
+		showImg.addEventListener('dblclick', function(e) {
+			console.log(e.target);
+			showImg.removeChild(e.target);
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<div id = "wrap">
+		<select multiple id = "dollShop">
+			<option value="1">소년</option>
+			<option value="2">커피</option>
+			<option value="3">강아지</option>
+			<option value="4">선물</option>
+		</select>
+		<br>
+			<div id = "choiceImg"></div>
+		<label><input type="button" value="담기" id="inputImg"></label>
+	</div>
+	<div id="showImg"></div>
+</body>
+</html>

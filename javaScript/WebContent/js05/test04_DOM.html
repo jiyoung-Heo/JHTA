@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test04_DOM.html</title>
+</head>
+<body>
+<form>
+	아이디(*)<input type="text" name="id" id = "id"><span></span><br>
+	비밀번호(*)<input type="password" name="pwd" id = "pwd"><span></span><br>
+	이메일(*)<input type="email" name="email"><span></span><br>
+	<input type="submit" value="가입">
+</form>
+<script type="text/javascript">
+	document.getElementById("id").addEventListener('focus', addMsg);
+	document.getElementById("pwd").addEventListener('focus', addMsg);
+	//focus 빠져나갈때: blur
+	document.getElementById("id").addEventListener('blur', delMsg);
+	document.getElementById("pwd").addEventListener('blur', delMsg);
+	
+	function addMsg(e) {
+		e.target.nextElementSibling.innerHTML="필수입력사항입니다.";
+	}
+	function delMsg(e) {
+		e.target.nextElementSibling.innerHTML="";
+	}
+</script>
+</body>
+</html>

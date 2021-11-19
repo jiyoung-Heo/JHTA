@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test11_quiz.html</title>
+<style type="text/css">
+	#wrap{border: 1px solid black;}
+	#wrap tr td{padding:5px;}
+	td{border:1px solid black;}
+	#a {background-color: gray;}
+</style>
+<script type="text/javascript">
+	function check(){
+		var allselect = document.getElementsByName("allselect");
+		var one = document.getElementsByName("one");
+		if (allselect[0].checked==true){
+			for (var i = 0; i < one.length; i++) {
+				one[i].checked=true;
+			}
+		}else{
+			for (var i = 0; i < one.length; i++) {
+				one[i].checked=false;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<table id = "wrap">
+	<tr id = "a">
+		<td><input type="checkbox" name = "allselect" onclick="check()"></td>
+		<td><label>보낸사람</label></td>
+		<td><label>제목</label></td>
+	</tr>
+	<tr>
+		<td><input type="checkbox" name="one"></td>
+		<td><label>홍길동</label></td>
+		<td><label>하이</label></td>
+	</tr>
+	<tr>
+		<td><input type="checkbox" name="one"></td>
+		<td><label>김영희</label></td>
+		<td><label>반갑습니다!</label></td>
+	</tr>
+	<tr>
+		<td><input type="checkbox" name="one"></td>
+		<td><label>김씨</label></td>
+		<td><label>헬로</label></td>
+	</tr>
+</table>
+</body>
+</html>

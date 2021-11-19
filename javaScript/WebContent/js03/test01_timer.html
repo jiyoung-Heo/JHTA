@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test01_timer.html</title>
+<style type="text/css">
+	#box{width:300px;height:200px; border:2px solid green;}
+</style>
+</head>
+<body>
+<div id="box" ></div>
+<input type="button" value="멈추기" onclick="stopChange()">
+</body>
+<script type="text/javascript">
+	var c = ['red','orange','pink'];
+	var index=0;
+	function changeColor(){
+		//box색깔을 red로 바꿔보세요.
+		var box = document.getElementById("box");
+		//box.style.backgroundColor="red";
+		box.style.backgroundColor=c[index++];
+		if(index==3) index=0;
+	}
+	/*
+		-setInterval(호출할함수,반복주기);
+		예)
+		setInterval(myFunc,1000);=> 1초에 한번씩 myFunc를 호출한다.
+		
+		-clearInterval(타이머아이디);
+	*/
+	//changeColor();
+	var tid = setInterval(changeColor,1_000);//초에 한번씩 colangeColor함수호출. colangeColor()<-괄호쓰면 한번 호출하고 끝난다.
+	// a=colangeColor 하면 a에 changeColor 함수 자체가 들어가는거고 a=changeColor()는 함수의 값이 들어가는거다.
+	function stopChange(){
+		clearInterval(tid);//타이머 멈추기
+	}
+</script>
+</html>

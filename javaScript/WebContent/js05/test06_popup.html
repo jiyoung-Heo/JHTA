@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_popup.html</title>
+</head>
+<body>
+<h1>회원가입</h1>
+<form>
+	아이디<input type="text" id="pid" name="id">
+	<input type="button" value = "중복검사"  id="btn1">
+	<br>
+	
+	비밀번호<input type="password" id="pwd" name="pwd"><br>
+	<input type="submit" value="가입">
+</form>
+</body>
+<script type="text/javascript">
+	var btn1 = document.getElementById("btn1");
+	// 화살표함수 사용
+	btn1.addEventListener('click', (e)=> {
+		window.open('popup2.html','_blank','width=300,height=200')
+		//alert('버튼클릭!');
+	})
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Test07_array.html</title>
+<script type="text/javascript">
+	var a=[];//빈배열 만들기
+	function addData() {
+		var name = document.getElementById("name");
+		a.push(name.value);
+		name.value="";//텍스트 지우기
+		name.focus();//포커스 주기
+	}
+	function showData() {
+		var result = document.getElementById("result");
+		var s="";
+		for (var i = 0; i < a.length; i++) {
+			s+=a[i]+"<br>";
+		}
+		s+= "<img src = 'images/1.png'>";
+		//html태그를 해석해서 보여줌
+		result.innerHTML=s; 
+		//divide출력
+		//result.innerHTML=a;
+		//result.innerText=s; =>모두 문자로 처리해서 보여줌
+	}
+	
+</script>
+</head>
+<body>
+<label>학생이름<input type="text" id="name"></label><br>
+<input type="button" value="저장" onclick="addData()">
+<input type="button" value="출력" onclick="showData()">
+<div id="result">
+
+</div>
+</body>
+</html>

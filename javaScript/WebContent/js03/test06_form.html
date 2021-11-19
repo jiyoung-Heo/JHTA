@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_form.html</title>
+<script type="text/javascript">
+	function showData(){
+		var hobby=document.getElementsByName("hobby");
+		var s = "";
+		for (let i = 0; i < hobby.length; i++) {
+			if(hobby[i].checked==true){//체크박스가 체크된 상태라면
+				s+=hobby[i].value+" ";
+			}
+		}
+		//선택된 지역도 출력되도록 해보세요.
+		var addr = document.getElementsByName("addr");
+		var s2="";
+		for (var i = 0; i < addr.length; i++) {
+			if(addr[i].checked ==true){
+				s2=addr[i].value;
+				break;
+			}
+		}
+		
+		var job = document.getElementsByName("job")[0];
+		var n = job.selectedIndex;//select의 선언된 인덱스값 얻어오기
+		console.log("선택된 인덱스: "+n);
+		if(n==-1){
+		 	alert("직업을 선택하세요!");
+		}else{
+			var s3 = job.value;
+			alert("취미: "+s+"\n지역: "+s2+"\n직업: "+s3);
+		}
+	}
+</script>
+</head>
+<body>
+<form>
+	아이디<input type="text" name="id"><br>
+	비밀번호<input type="password" name="pwd"><br>
+	취미<br>
+	<input type="checkbox" value="여행" name="hobby" checked="checked">여행
+	<input type="checkbox" value="독서" name="hobby">독서
+	<input type="checkbox" value="게임" name="hobby">게임
+	<input type="checkbox" value="영화" name="hobby" >영화
+	<br>
+	거주지역
+	<input type="radio" value="서울" name="addr" checked="checked">서울
+	<input type="radio" value="경기" name="addr">경기
+	<input type="radio" value="부산" name="addr">부산
+	<input type="radio" value="기타" name="addr">기타
+	<br>
+	<!-- size속성을 주면 박스가 늘어나서나온다. -->
+	직업<br><select name="job" size="4">
+		<option value="학생">학생</option>
+		<option value="프로그래머">프로그래머</option>
+		<option value="공무원">공무원</option>
+		<option value="기타">기타</option>
+	</select>
+	<br>
+	<input type="button" value="확인" onclick="showData()">
+</form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test01.html</title>
+<script type="text/javascript">
+	function hello(){
+	alert("환영합니다.");
+	}
+	
+	function showName(){
+		// var: 변수선언시 쓰는 키워드
+		var name=document.getElementById("name");
+		alert("당신의 이름은 "+name.value+"입니다.")
+	}
+</script>
+</head>
+<body>
+<!-- onclick: 이벤트핸들러 -->
+<input type="button" value="button1" onclick="hello()"><br>
+이름<input type="text" id="name" value="홍길동">
+<input type="button" value="확인" onclick="showName()">
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test09_quiz.html</title>
+<script type="text/javascript">
+	window.onload=function(){
+		let btn1 = document.getElementById("btn1");
+		let cnt = 1;
+		btn1.addEventListener('click', function(e) {
+			for (let i = 0; i < 5; i++) {
+				var img = document.createElement("img");
+				img.src = "images/"+ cnt++ +".png";
+				imglist.appendChild(img);
+				img.addEventListener('mouseover', function(e) {
+					e.target.style.border="2px solid red";
+				});
+				img.addEventListener('mouseout', function(e) {
+					e.target.style.border="none";
+				});
+			}
+			if(cnt>=20) cnt = 1;
+		});
+		let btn2 = document.getElementById("btn2");
+		btn2.addEventListener('click', function(e) {
+			let imglist = document.getElementById("imglist");
+			let nodes=imglist.children;
+			let len = nodes.length;
+			for (let i = 0; i < len; i++) {
+				imglist.removeChild(imglist.firstChild);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+<!-- 버튼을 클릭하면 이미지다섯개를 imglist에 생성하고
+이미지에 마우스가 올러가면 보더가 생기도록 해보세요 -->
+<input type="button" value="이미지 다섯개 생성" id="btn1">
+<input type="button" value="이미지 모두지우기" id="btn2">
+<div id="imglist"></div>
+
+</body>
+</html>

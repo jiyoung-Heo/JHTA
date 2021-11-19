@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test04.html</title>
+<script type="text/javascript">
+	var n = 1;
+	function changeImg(){
+		n++;
+		var img1=document.getElementById("img1");
+		img1.src="images/"+n+".png";
+		if(n==20) n=1;
+	}
+	function switchImg1(){
+		var m1=document.getElementById("m1");
+		var m2=document.getElementById("m2");
+		var temp = m1.src;
+		m1.src=m2.src;
+		m2.src=temp;
+	}
+	var n1=1;
+	function switchImg2(){
+		var m1=document.getElementById("m1");
+		var m2=document.getElementById("m2");
+		if(n1%2==1){
+			m1.src="images/002.jpg";
+			m2.src="images/001.jpg";
+		}else{
+			m1.src="images/001.jpg";
+			m2.src="images/002.jpg";
+		}
+		n1++;
+	}
+</script>
+</head>
+<body>
+<img src="images/1.png" id="img1"><br>
+<input type="button" value="이미지바꾸기" onclick="changeImg()"><br>
+<img src = "images/001.jpg" id="m1">
+<img src = "images/002.jpg" id="m2">
+<br>
+<input type="button" value="이미지 서로 바꾸기" onclick="switchImg2()">
+</body>
+</html>

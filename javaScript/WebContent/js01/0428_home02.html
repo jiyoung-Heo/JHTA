@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0428_home02.html</title>
+<style>
+	*{margin:0px; padding: 0px;}
+	#wrap{background-color: gray; width:950px; height: 750px; margin:auto;}
+	#wrap #list{width: 950px; height: 200px; padding-left:15px; }
+	#wrap #list img{width:150px; height:auto; }
+	#wrap #bigone img{width:700px; height: auto; display:block; margin:auto;}
+</style>
+<script type="text/javascript">
+	function a(){
+		const e1 =document.getElementById("e1");
+		result(e1);
+	}
+	function b(){
+		const e2 =document.getElementById("e2");
+		result(e2);
+	}
+	function c(){
+		const e3 =document.getElementById("e3");
+		result(e3);
+	}
+	function d(){
+		const e4 =document.getElementById("e4");
+		result(e4);
+	}
+	function e(){
+		const e5 =document.getElementById("e5");
+		result(e5);
+	}
+	function f(){
+		const e6 =document.getElementById("e6");
+		result(e6);
+	}
+	function result(name){
+		const show =document.getElementById("show");
+		show.src=name.src;
+	}
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="list">
+		<img src="images/1.jpg" id="e1" onclick="a()">
+		<img src="images/2.jpg" id="e2" onclick="b()">
+		<img src="images/3.jpg" id="e3" onclick="c()">
+		<img src="images/4.jpg" id="e4" onclick="d()">
+		<img src="images/5.jpg" id="e5" onclick="e()">
+		<img src="images/6.jpg" id="e6" onclick="f()">
+	</div>
+	<div id="bigone">
+		<img src="images/1.jpg" id="show">
+	</div>
+</div>
+</body>
+</html>

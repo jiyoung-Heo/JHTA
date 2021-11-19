@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>test01_css.html</title>
+<style type="text/css">
+	#box1{width:200px; height:200px; background-color: orange;}
+</style>
+<script type="text/javascript">
+	function changeCss(){
+		var box1=document.getElementById("box1");
+		/*
+			css변경
+			객체명.style.속성명="설정값"
+		*/
+		box1.style.width="400px";
+		box1.style.height="400px";
+		box1.style.backgroundColor="green";
+		box1.style.marginLeft="200px";
+	}
+	function changeSize(){
+		var img1 = document.getElementById("img1");
+		img1.style.width="300px";
+		img1.style.height="300px";
+	}
+</script>
+</head>
+<body>
+	<input type="button" value ="css변경" onclick="changeCss();">
+	<!-- 300 300으로 이미지 크기 변경하기 -->
+	<input type="button" value="이미지크기변경" onclick="changeSize();">
+<div id="box1">
+	<img src="images/1.png" id="img1"><br>
+</div>
+</body>
+</html>

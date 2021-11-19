@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0428_home01.html</title>
+<style>
+	*{margin:0px; padding:0px;}
+	#wrap{border: 2px solid black; width:400px; height: 300px; margin: auto; margin-top: 50px;}
+	#wrap #all {text-align: center; padding-top: 25px;}
+	#wrap #all input{margin:5px 25px 5px 50px;} 
+</style>
+<script type="text/javascript">
+	function result(){
+		const kor= parseInt(document.getElementById("kor").value);
+		const eng= parseInt(document.getElementById("eng").value);
+		const math= parseInt(document.getElementById("math").value);
+		document.getElementById("sum").value= sum(kor,eng,math);
+		document.getElementById("avg").value= avg(kor,eng,math);
+		document.getElementById("grade").value= grade(kor,eng,math);
+	}
+	function deleteSheet(){
+		document.getElementById("kor").value="";
+		document.getElementById("eng").value="";
+		document.getElementById("math").value="";
+	}
+	function sum(kor,math,eng){
+		return kor+math+eng;
+	}
+	function avg(kor,math,eng){
+		return sum(kor,math,eng)/3;
+	}
+	function grade(avg){
+		if(avg>=90){
+			return "A";
+		}else if(avg>=80){
+			return "B";
+		}else if(avg>=70){
+			return "C";
+		}else if(avg>=60){
+			return "D";
+		}else if(avg<60){
+			return "E";
+		}
+	}
+</script>
+</head>
+<body>
+<!-- 국어,영어,수학 점수 입력받아 총점,평균,학점을 구해보세요. -->
+<div id="wrap">
+	<div id="all">
+	<label>국어<input type="text" id="kor"></label><br>
+	<label>영어<input type="text" id="eng"></label><br>
+	<label>수학<input type="text" id="math"></label><br>
+	<input type="button" value="계산" onclick ="result()">
+	<input type="button" value="지우기" onclick="deleteSheet()"><br>
+	<label>총점<input type="text" id="sum"></label><br>
+	<label>평균<input type="text" id="avg"></label><br>
+	<label>학점<input type="text" id="grade"></label><br>
+	</div>
+</div>
+</body>
+</html>

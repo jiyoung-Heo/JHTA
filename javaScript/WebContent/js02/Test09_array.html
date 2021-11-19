@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Test09_array.html</title>
+</head>
+<body>
+<div class="div1">div1</div>
+<div class="div1">div2</div>
+<div class="div1">div3</div>
+</body>
+<script type="text/javascript">
+	//css select로 html요소를 배열로 얻어오기
+	var div=document.querySelectorAll(".div1");
+	//class name으로 배열 얻어오기
+	//var div=document.getElementsByClassName("div1");
+	div[0].style.backgroundColor="yellow";
+	div[1].style.backgroundColor="green";
+	div[2].style.backgroundColor="blue";
+</script>
+</html>

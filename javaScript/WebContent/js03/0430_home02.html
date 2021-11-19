@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0430_home02.html</title>
+<style type="text/css">
+	#wrap{width: 700px; height:700px; margin:auto;}
+	#header{width:100%; height: 10%; background-color: #92A8D1; text-align: center;}
+	#header #use{padding-top: 20px;}
+	#center{width:100%; height: 90%;}
+</style>
+<script type="text/javascript">
+function clearData(){
+	for (var i = 0; i <= 6; i++) {
+		for (var j = 0; j < 6; j++) {
+		document.getElementsByName("n"+i)[j].innerHTML="";
+		document.getElementsByName("n"+i)[j].style.backgroundColor="white";
+		}
+		
+	}
+	
+}
+
+
+function changeCalendar(){
+	clearData();
+	//지우는 방법 생각하기...
+	var year = document.getElementById("year").value;
+	var month = document.getElementById("month").value;
+	var day = document.getElementById("day").value;
+	var date = new Date(year+"."+month+"."+day);
+	var maxday=0;
+	if(month==1 || month==3||month==5||month==7||month==8||month==10||month==12){
+		maxday=31;
+	}else if(month==2){
+		//윤년체크
+		//연도가 4의 배수이면서 100의배수가 아닐때 또는 400의 배수일때가 윤년이다.
+		//2012년은 4의배수라서 윤년이지만 1900년은 4의배수이지만 100의배수이기때문에 윤년이아니다. 하지만 2000년은 400의 배수이기 때문에 윤년이다.
+		if((year%4==0 && year%100!=0) || year%400==0){
+			//윤년
+			maxday=29;
+		}else{
+			maxday=28;
+		}
+	}else{
+		maxday=30;
+	}
+	//var sepDate=1;
+	//var getfirst= new Date(year+"."+month+"."+sepDate);
+	//var firstd = document.getElementsByName("n"+getfirst.getDay())[0];
+	//firstd.innerHTML="1";
+		var week = 0;
+		console.log(week);
+		var getName="";
+		var select;
+		for (var i = 1; i <= maxday; i++) {
+			var d= new Date(year+"."+month+"."+i);
+			getName="n"+d.getDay();
+			var select = document.getElementsByName(getName)[week];
+			select.innerHTML=i;
+			if(i == day){
+				select.style.backgroundColor="yellow";
+			}
+			if(getName=="n6"){
+				week++;
+			}
+		}
+	//console.log(getfirst.getDay());//해당 달의 1일의 요일 체크
+	//console.log(date.getDay());//해당요일체크
+}
+
+</script>
+</head>
+<body>
+	<div id= "wrap">
+		<div id="header">
+			<div id = "use">
+			<input type="text" id="year" style="width:100px;">
+			<label>년</label>
+			<input type="text" id="month" style="width:100px;">
+			<label>월</label>
+			<input type="text" id="day" style="width:100px;">
+			<label>일</label>
+			<input type="button" value="확인" onclick="changeCalendar()">
+			</div>
+		</div>
+		<table id = "center">
+			<tr>
+				<td><label id = "sun">일</label></td>
+				<td><label id = "mon">월</label></td>
+				<td><label id = "tue">화</label></td>
+				<td><label id = "wed">수</label></td>
+				<td><label id = "thu">목</label></td>
+				<td><label id = "fri">금</label></td>
+				<td><label id = "sat">토</label></td>
+			</tr>
+			<tr id="first">
+				<td><label name="n0"></label>
+				<td><label name="n1"></label>
+				<td><label name="n2"></label>
+				<td><label name="n3"></label>
+				<td><label name="n4"></label>
+				<td><label name="n5"></label>
+				<td><label name="n6"></label>
+			</tr>
+			<tr id="second">
+				<td><label name="n0"></label>
+				<td><label name="n1"></label>
+				<td><label name="n2"></label>
+				<td><label name="n3"></label>
+				<td><label name="n4"></label>
+				<td><label name="n5"></label>
+				<td><label name="n6"></label>
+			</tr>
+			<tr id="third">
+				<td><label name="n0"></label>
+				<td><label name="n1"></label>
+				<td><label name="n2"></label>
+				<td><label name="n3"></label>
+				<td><label name="n4"></label>
+				<td><label name="n5"></label>
+				<td><label name="n6"></label>
+			</tr>
+			<tr id="forth">
+				<td><label name="n0"></label>
+				<td><label name="n1"></label>
+				<td><label name="n2"></label>
+				<td><label name="n3"></label>
+				<td><label name="n4"></label>
+				<td><label name="n5"></label>
+				<td><label name="n6"></label>
+			</tr>
+			<tr id="fifth">
+				<td><label name="n0"></label>
+				<td><label name="n1"></label>
+				<td><label name="n2"></label>
+				<td><label name="n3"></label>
+				<td><label name="n4"></label>
+				<td><label name="n5"></label>
+				<td><label name="n6"></label>
+			</tr>
+			<tr id="sixth">
+				<td><label name="n0"></label>
+				<td><label name="n1"></label>
+				<td><label name="n2"></label>
+				<td><label name="n3"></label>
+				<td><label name="n4"></label>
+				<td><label name="n5"></label>
+				<td><label name="n6"></label>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>quiz02.html</title>
+<script type="text/javascript">
+	function resultClick() {
+		var id= document.getElementById("snum").value;
+		var idFor=document.getElementById("snum");
+		if(id.length==13){
+			for (var i = 0; i < id.length; i++) {
+				// id.indexOf("-")!=-1 도 가능. -가 있으면 해당 위치를 출력해줌. 
+				if (id.charAt(i)=='-'){
+					alert("주민등록번호에 -는 입력하지 마세요")
+					idFor.focus();
+					return;
+				}
+				if((id.charAt(i)>=0||id.charAt(i)<=9)==false){
+					alert("주민등록번호에는 숫자만 들어가야합니다.")
+					idFor.focus();
+					return;
+				}
+			}
+			if(id.charAt(6)=='1'||id.charAt(6)=='3'){
+				var r1 = document.getElementById("r1");
+				r1.value="남";
+			}else if(id.charAt(6)=='2'||id.charAt(6)=='4'){
+				var r1 = document.getElementById("r1");
+				r1.value="여";
+			}
+			var r2 = document.getElementById("r2");
+				r2.value=id.substr(2,2)+"월"+id.substr(4,2)+"일";
+			
+				return;
+		}else{
+			alert("주민등록번호는 13자리여야합니다.");
+			idFor.focus();
+			return;
+		}
+	}
+</script>
+</head>
+<body>
+<!-- 주민등록번호입력받아서 잘 썼는지 체크하고 성별과 생년월일 출력하기
+	조건: 주민등록번호는 13자리로 입력, 주민등록번호에 -는 입력하면 안됨,주민등록번호는 모두 숫자로 이루어져야함.
+ -->
+<label>주민등록번호<input type="text" id="snum"></label>
+<input type="button" value="클릭" onclick="resultClick()"><br>
+성별<input type="text" id="r1" readonly="readonly"><br>
+생일<input type="text" id="r2" readonly="readonly"><br>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>0429_home.html</title>
+<style>
+</style>
+<script type="text/javascript">
+	function login(){
+		var id = document.getElementById("id").value;
+		var pwd = document.getElementById("pwd").value;
+		var pwd2 = document.getElementById("pwd2").value;
+		
+		if(id.length<9 || id.length>12){
+			alert("아이디는 9자에서 12자 사이어야합니다.")
+			return;
+		}
+		if(pwd.length<6){
+			alert("비밀번호는 6자 이상이어야 합니다.")
+			return;
+		}
+		if(pwd!=pwd2){
+			alert("비밀번호확인이 비밀번호와 일치하지 않습니다.")
+			return;
+		}
+		for (var i = 0; i < id.length; i++) {
+			if((id.charAt(i)>='A' && id.charAt(i)<="Z" ||id.charAt(i)>='a' && id.charAt(i)<="z"||id.charAt(i)>='0' && id.charAt(i)<="9")==false){
+				alert("아이디는 영문자와 숫자로만 이루어져야 합니다.")
+				return;
+			}
+		}
+		alert("가입완료되었습니다.")
+		return;
+	}
+	function esc() {
+		document.getElementById("id").value="";
+		document.getElementById("pwd").value="";
+		document.getElementById("pwd2").value="";
+		id.focus();
+	}
+</script>
+</head>
+<body>
+<div style="position: absolute; top:20%; left:20%; ">
+	<div>
+	<label>아이디<input type="text" id = "id"></label><br>
+	<label>비밀번호<input type="password" id = "pwd"></label><br>
+	<label>비밀번호확인<input type="password" id = "pwd2"></label><br>
+	</div>
+	<div>
+	<input type="button" id="login" value="가입" onclick="login()">
+	<input type="button" id="esc" value="취소" onclick="esc()">
+	</div>
+</div>
+
+</body>
+</html>

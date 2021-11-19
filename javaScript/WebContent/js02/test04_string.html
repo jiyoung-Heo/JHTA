@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>test04_string.html</title>
+<script type="text/javascript">
+	let str="hello world!";
+	let c=str.charAt(0);
+	let a=str.substr(1,3);
+	var i=str.indexOf("w");
+	console.log(c);
+	console.log(a);
+	console.log(i);
+</script>
+</head>
+<body>
+
+아이디<input type="text" id="id"><br>
+<input type="button" value="확인" onclick="test()">
+</body>
+<script>
+	function test(){
+		 var id = document.getElementById("id");
+		/*if(id.value.length>9 || id.value.length<5){
+			alert("아이디를 5~9자 사이로 입력하세요");
+			id.focus();//포커스 주기
+		}else{
+			alert("잘 입력했어요~")
+		}
+		*/
+		for (let i = 0; i < id.value.length; i++) {
+			let c = id.value.charAt(i);
+			if(!(c>='a' && c<='z')){
+				alert("아이디는 영문소문자로 입력해주세요");
+				return;//메소드 끝내기
+			}
+		}
+	}
+</script>
+</html>

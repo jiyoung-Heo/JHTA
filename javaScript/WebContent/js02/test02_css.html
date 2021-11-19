@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>test02_css.html</title>
+<style type="text/css">
+	*{margin:0px; padding: 0px;}
+	#content{width:1000px; height:800px; background-color: orange; padding:50px; margin:auto;}
+	#popup{width:280px; height: 300px; border: 2px solid green; background-color: pink;padding:10px; 
+	position:absolute; right: 200px; top:150px; display: none;}
+	ul li{list-style: none;}
+</style>
+</head>
+<body>
+<!-- 웹접근성때문에 팝업 잘 안만드는추세지만 필요할경우 사용해야함 -->
+<div id="popup">
+	<div>
+		<a href="javascript:nonPopup()">닫기</a>
+	</div>
+	<div>
+		<ul>
+			<li>1.이벤트하나</li>
+			<li>2.이벤트둘</li>
+			<li>3.이벤트셋</li>
+		</ul>
+	</div>
+</div>
+<div id="content">
+	<h1>우리우리영화관</h1>
+	<p>
+		우리우리영화관입니다...<br>
+		<img src="images/1.png">
+	</p>
+		<a href="javascript:showPopup()">진행중인 이벤트 보기</a>
+</div>
+<script type="text/javascript">
+	function showPopup(){
+		var popup = document.getElementById("popup");
+		popup.style.display="block";//화면에 보여짐
+	}
+	function nonPopup(){
+		var popup = document.getElementById("popup");
+		popup.style.display="none";
+	}
+</script>
+</body>
+</html>

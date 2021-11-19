@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test10_quiz.html</title>
+<script type="text/javascript">
+	function submitData() {
+		var id = document.getElementsByName("id")[0].value;
+		var pwd = document.getElementsByName("pwd")[0].value;
+		var hobby = document.getElementsByName("hobby");
+		if(id.length<5||pwd.length<5){
+			alert("아이디와 비밀번호는 5자 이상이어야합니다.");
+			return false;
+		}
+		for (var i = 0; i < hobby.length; i++) {
+			if(hobby[i].checked==true){
+				alert("성공");
+				return true;
+			}
+		}
+		alert("관심분야는 하나이상 선택하셔야합니다.");
+		return false;
+	}
+</script>
+</head>
+<body>
+<!-- 
+	아이디와 비밀번호는 5자이상 입력되도록
+	관심분야는 하나이상 선택되어야함
+-->
+<form action="join.jsp" onsubmit="return submitData();">
+	<label>아이디<input type="text" name = "id"></label><br>
+	<label>비밀번호<input type="password" name = "pwd"></label><br>
+	<label>관심분야
+		<input type="checkbox" name = "hobby" name="여행">여행
+		<input type="checkbox" name = "hobby" name="영화">영화
+		<input type="checkbox" name = "hobby" name="독서">독서
+		<input type="checkbox" name = "hobby" name="기타">기타
+	</label><br>
+	<input type="submit" value="등록">
+</form>
+</body>
+</html>

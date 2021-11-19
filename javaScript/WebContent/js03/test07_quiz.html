@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test07_quiz</title>
+</head>
+<script type="text/javascript">
+	function getAddr() {
+		var check=document.getElementsByName("check")[0].checked;
+		var name= document.getElementsByName("name");
+		var addr= document.getElementsByName("addr");
+		if(check==true){
+			name[1].value = name[0].value;
+			addr[1].value = addr[0].value;
+		}if(check==false){
+			name[1].value="";
+			addr[1].value="";
+		}
+	}
+</script>
+<body>
+회원이름<input type="text" name="name"><br>
+회원주소<input type="text" name="addr" size="50"><br>
+<input type="checkbox" value="위와동일" name="check" onclick="getAddr()">위와동일<br>
+받는사람<input type="text" name="name"><br>
+받는주소<input type="text" name="addr" size="50"><br>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test01_event.html</title>
+</head>
+<script type="text/javascript">
+	function showText(e){
+		console.log("키보드 누름..."+e.keyCode);
+		if(e.keyCode==13){
+			var text = document.getElementById("txtMsg").value;
+			document.getElementById("result").innerHTML=text;
+		}
+	}
+	function showXY(e){
+		var x = e.clientX; //커서올린곳의 출력한 x좌표
+		var y = e.clientY; //커서올린곳의 출력한 y좌표
+		document.getElementById("pos").innerHTML="x: "+x+"y: "+y;
+	}
+	function addBorder(e){
+		var img = e.target;//이벤트가 발생된 객체
+		img.style.backgroundColor="orange";
+	}
+	function removeBorder(e){
+		e.target.style.background="none";
+	}
+	function border(){
+		var imgbox=document.getElementById("imgbox");
+		imgbox.style.border="3px solid red";
+	}
+</script>
+<!-- onload: html로딩 다 되고나서 function 호출하고 싶을때 사용함 -->
+<body onload="border()">
+<label>문자열입력<input type="text" id = "txtMsg" onkeypress="showText(event)"></label>
+<div id="result"></div>
+<div id = "pos"></div>
+<div id="box" style="width:400px;height:300px;border: 2px solid green" onmousemove="showXY(event)"></div>
+<div id="imgbox">
+	<img src = "images/1.png" onmouseover="addBorder(event)" onmouseout="removeBorder(event)">
+	<img src = "images/2.png" onmouseover="addBorder(event)" onmouseout="removeBorder(event)">
+	<img src = "images/3.png" onmouseover="addBorder(event)" onmouseout="removeBorder(event)">
+</div>
+</body>
+</html>

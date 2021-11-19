@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test03.html</title>
+<style type="text/css">
+	#img1{position: relative; left:0px; top:20px;}
+	/*
+		absolute: 부모기준정렬
+		relative: 현재위치기준
+	*/
+</style>
+<script type="text/javascript">
+	var n1=0;
+	function move1(){
+		n1+=50;
+		var img1=document.getElementById("img1");
+		img1.style.left=n1+"px";
+	}
+	var trum=0;
+	function move2(){
+		trum = setInterval(startChange, 100);
+	}
+	var n2 = 0;
+	function startChange(){
+		n2+=10;
+		var img2 = document.getElementById("img1");
+		img2.style.left=n2+"px";
+		if(n2>=100){
+			console.log('s');
+			clearInterval(trum);
+		}
+	}
+	function move3(){
+		var sdl= setInterval(goback, 100);
+	}
+	var n3=20;
+	var x = 20;
+	function goback(){
+		var img3 = document.getElementById("img1");
+		img3.style.left=n3+"px";
+		if(n3>=100){
+			x=-20;
+		}else if(n3<=0){
+			x=20;
+		}
+		n3+=x;
+	}
+	
+</script>
+</head>
+<body>
+<input type="button" value="move1" onclick="move1()">
+<input type="button" value="move2" onclick="move2()">
+<input type="button" value="move3" onclick="move3()">
+<br>
+<img src="images/1.png" id="img1" style="background-color: orange;">
+
+</body>
+</html>

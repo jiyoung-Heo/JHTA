@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>test11_quiz.html</title>
+</head>
+<script type="text/javascript">
+	var n=0;
+	function goNext() {
+		if (n==2){
+			n=0;
+		}
+		for (var i = 0; i < div.length; i++) {
+			div[i].style.display="none";
+		}
+		div[n+1].style.display="block";
+		n++;
+	}
+	/*var arr=["십리도 못가서 발병난다","아리랑아리랑아라리요","아리랑 고개로 넘어간다."];
+	function goNext(){
+		var div = document.getElementsByTagName("div");
+		for (var i = 0; i < arr.length; i++) {
+			div[1].innerHTML=arr[i];
+		}
+	}
+	*/
+</script>
+<body>
+<div>아리랑 아리랑 아라리요</div>
+<div>아리랑 고개로 넘어간다.</div>
+<div>나를 버리고 가시는 님은</div>
+<!-- 배열에 노랫말 세개를 담고 다음가사 버튼을 누르면 div에 다음 가사가 보이도록 해보세요 -->
+<input type="button" value="다음가사" onclick="goNext()">
+</body>
+<script type="text/javascript">
+var div = document.getElementsByTagName("div");
+for (var i = 1; i < div.length; i++) {
+	div[i].style.display="none";
+}
+</script>
+</html>

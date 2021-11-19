@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>popup2.html</title>
+</head>
+<body>
+아이디<input type="text" id="cid">
+<div id="result" style="color:red;font-size:12px"></div>
+<input type="button" value="확인" id="btn1">
+<input type="button" value="사용" id="btn2" disabled="disabled">
+</body>
+<script>
+	window.onload=function(e){
+		//window.opener : 부모창
+		//부모창에입력된 아이디값 팝업창 아이디에 보이기
+		let pid = window.opener.document.getElementById("pid");
+		let cid = document.getElementById("cid");
+		cid.value=pid.value;
+		
+		let btn1=document.getElementById("btn1");
+		let btn2 = document.getElementById("btn2");
+		let result = document.getElementById("result");
+		btn1.addEventListener('click',()=> {
+			if(cid.value=="admin"){
+				result.innerHTML="사용중인 아이디입니다.";
+				btn2.disabled=true;//사용버튼 비활성화
+			}else{
+				result.innerHTML="사용가능한아이디입니다.";
+				btn2.disabled=false;//사용버튼활성화
+			}
+		});
+		btn2.addEventListener('click', ()=> {
+			pid.value=cid.value;
+			self.close();
+		});
+		
+	}
+</script>
+</html>

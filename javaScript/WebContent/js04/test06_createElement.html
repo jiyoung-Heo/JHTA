@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_createElement.html</title>
+<script type="text/javascript">
+	window.onload = function(){
+		let btn1 = document.getElementById("btn1");
+		let imgbox = document.getElementById("imgbox");
+		let num=1;
+		btn1.addEventListener('click',function(e){
+			//img요소(태그)를 생성하기
+			let img1 = document.createElement("img");
+			img1.src = "images/"+ num++ +".png";
+			imgbox.appendChild(img1);
+			if(num>20) num=1;
+		});
+		let btn2 = document.getElementById("btn2");
+		btn2.addEventListener('click', function(e) {
+			//마지막 자식요소 삭제하기
+			//imgbox.removeChild(imgbox.lastChild);
+			//첫번째 자식요소 삭제하기
+			imgbox.removeChild(imgbox.firstChild);
+		});
+		
+		btn3.addEventListener('click', function(e) {
+			//imgbox의 모든 자식요소를 컬랙션객체로 얻어오기
+			let childs=imgbox.children;
+			/*for (let i = childs.length-1; i>=0; i--) {
+				//i번째 요소 얻어오기
+				let item=childs.item(i);
+				console.log(item);
+				//i번째 요소 삭제하기
+				imgbox.removeChild(item);
+			}
+			*/
+			while(childs!=null){
+				let item=childs.item(0);
+				console.log(item);
+				imgbox.removeChild(item);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+<button id = "btn1" >이미지 추가</button>
+<button id = "btn2" >이미지 삭제</button>
+<button id = "btn3" >모두 삭제</button>
+<div id= "imgbox"></div>
+</body>
+</html>
