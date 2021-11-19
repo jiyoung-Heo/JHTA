@@ -1,0 +1,21 @@
+-- members.sql
+
+drop table members;
+create table members
+(
+	num number(5) primary key,
+	name varchar2(20) not null,
+	phone varchar2(20),
+	addr varchar2(50),
+	regdate date
+);
+insert into members values(1,'홀길동','010','서울',sysdate);
+commit;
+
+create table point
+(
+	pnum number(5) primary key, --포인트번호
+	num number(5) references members(num),
+	mpoint number(6)
+);
+create sequence point_seq;

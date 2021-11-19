@@ -1,0 +1,41 @@
+CREATE TABLE buy
+(
+    num NUMBER(2) PRIMARY KEY,
+    id VARCHAR2(15),
+    product VARCHAR2(15),
+    price NUMBER(5),
+    count NUMBER(5),
+    buyday DATE
+);
+
+CREATE TABLE pay
+(
+	pNum NUMBER(2) PRIMARY KEY,
+	num NUMBER(2) REFERENCES buy(num),
+	price NUMBER(5),
+	payMethod VARCHAR2(15)
+);
+create index payIndex on pay(pNum desc);
+
+//1. 
+//<< 구매테이블 >>
+//
+//구매번호(PK),구매자아이디,상품명,가격,수량,구매일
+//
+//<< 결제테이블 >>
+//
+//결제번호(PK) 구매번호(FK) 결제금액 결제수단
+//
+//
+//위의 정보를 갖는 테이블을 만들고 구매기능을 구현해 보세요.(PreparedStatement를 사용합니다.)
+//
+//[실행결과]
+//1. 제품구매  2.구매정보수정 3.구매정보조회  4.구매취소 
+//..
+//
+//제품구매:구매자아이디,상품명,가격,수량,결제수단 입력 받아서 저장
+//구매정보조회:전체구매정보 조회
+//구매정보수정:상품명,가격,수량,결제금액,결제수단을 변경합니다.
+//구매취소:구매정보와 결제정보가 모두 삭제됩니다.
+//
+//트랜잭션 처리가 가능하도록 만들어 보세요
