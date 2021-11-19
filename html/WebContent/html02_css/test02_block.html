@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*인라인요소는 width속성을 지정할 수 없다.*/
+	div #a{background-color: green;}/*a는 인라인요소이므로 width적용안됨*/
+	div p#b{background-color: pink;width:500px;}/*p는 블록요소이므로 width적용*/
+	div p a{background-color: orange;}
+	#b span{background-color: red}
+</style>
+</head>
+<body>
+<!-- 
+	html요소에는 블록요소와 인라인요소가 있다.
+	-블록레벨요소: 자동줄바꿈이됨 한줄전체가 영역으로 설정(div,p,h1...)
+	-인라인레벨요소: 자동줄바꿈이 안됨. 콘텐츠만큼만 영역으로 설정(a,span,...)
+-->
+<div>
+	<p id ="a">아리랑 아리랑</p>
+	<p id="b">아라리요 아리랑<span>고개</span>로 넘어간다.</p>
+	<p>나를 버리고 가시는 님은...<a href="http://www.naver.com">네이버</a></p>
+</div>
+</body>
+
+</html>

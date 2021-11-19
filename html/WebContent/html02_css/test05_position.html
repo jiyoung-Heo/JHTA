@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	*{margin: 0px;padding: 0px;}
+	div{width:300px;height:200px}
+	div#a{background: red; position: absolute; left:50px;top:50px;z-index: 100}
+	div#b{background: green; position: absolute; left:320px; top:70px; z-index: 2}
+	div#c{background: orange; position: absolute; left:500px;top:90px; z-index: 3}
+	div#d{background: pink; position: absolute; left:700px; top:110px; z-index: 1}
+	div#e{width:500px; height: 500px; position:absolute; left:100px;top:500px; background-color: blue;}
+	div#f{background: yellow; width:200px;height:200px; position: absolute; left:10px; top:20px;}
+</style>
+</head>
+<body>
+<div id="a">div1</div>
+<div id="b">div2</div>
+<div id="c">div3</div>
+<div id="d">div4</div>
+<div id="e">
+	<div id="f">div5</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Test01_form.html</title>
+</head>
+<body>
+<form action="join.jsp">
+	<label>아이디<input type="text" required="required"></label><br>
+	<label>이메일<input type="email" placeholder ="example@domain.com"></label><br>
+	<label>생년월일<input type="date"></label><br>
+	<label>나이<input type="number" min="0" max="150"></label><br>
+	<label>숙련도<input type="range" min="1" max ="10" step="1" value="1"></label><br>
+	<input type="submit" value="가입">
+	<input type="submit" value="수정" formaction="update.jsp">	
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1{background-color: red;}
+	div{background-color: yellow;}
+	/*div속성이 a인 요소들에 적용*/
+	#a{font-size: 30px;color:blue;}
+	/*클래스속성이 b인요소들에적용*/
+	.b{width:300px;border:3px solid green;}
+	/*class속성이 c인 요소의 자식요소 h1에 적용*/
+	.c h1{color:white;}
+	.c .b{width:500px;height: 300px;border:3px solid orange;}
+	
+</style>
+</head>
+<body>
+<!-- css셀렉터
+	id셀렉터: #아이디
+	class셀렉터: .클래스명
+	tag셀렉터: 태그명
+-->
+<h1>우리우리쇼핑몰</h1>
+<div id="a">
+	영역1	
+</div>
+<div class="b">
+	영역2
+</div>
+<div class="b">
+	영역3
+</div>
+<div class="c">
+	<h1>hello</h1>
+	<div class=b>안녕하세요</div>
+</div>
+</body>
+</html>

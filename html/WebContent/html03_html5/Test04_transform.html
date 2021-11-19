@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test04_transform.html</title>
+<style>
+	body{padding:100px;}
+	img{border:1px solid red; background-color: orange;}
+	#img1{transform:rotate(30deg);}/*이미지를 30도 회전*/
+	#img2{transform:scale(1.2,1.2);}
+	/*img에 마우스가 올라가면 1.5배로 크기 변경하기*/
+	#imgbox1 img:hover{
+		transform:scale(1.2,1.2);
+	}
+</style>
+</head>
+<body>
+<div id="imgbox">
+	<img src="../images/1.png" id="img1">
+	<img src="../images/2.png" id="img2">
+	<img src="../images/3.png" id="img3">
+</div>
+<div id="imgbox1" style="margin-top: 50px;">
+	<img src="../images/1.png">
+	<img src="../images/2.png">
+	<img src="../images/3.png">
+</div>
+</body>
+</html>
