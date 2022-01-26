@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test08_each.html</title>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function (){
+		$("p").css("background-color","yellow"); //p속성을 가진 글씨 배경이 노란색으로 바뀜
+		//let html=$("p").html(); // p요소중 가장 첫번째 요소값을 얻어옴
+		//alert(html);
+		$("p").each(function(n){ //each가 foreach와 같음
+			let html=$(this).html(); //each때문에 p속성을 가진 모든 요소들이 출력됨
+			console.log(n+":"+html);
+		}); //p요소는 배열임
+		let ari=["십리도 못가서 발병난다","아리랑 아리랑 아라리요","아리랑 고개로 넘어간다"];
+		$("#btn1").click(function(){
+			$("p").each(function(n){
+				$(this).html(ari[n]);
+			});
+		});
+		/*
+		$("#btn2").click(function(){
+			$("img").each(function(n){
+				$(this).prop("src","images/"+(n+4)+".png");
+			});
+		});
+		*/
+		let n=4;
+		setInterval(function(){
+			$("div img").each(function(){
+				$(this).prop("src","images/"+ n++ +".png");
+				if(n>6) n=1;
+			});
+		},1000);
+
+		/*
+				let n=4;
+		$("#btn2").click(function(){
+			$("img").each(function(n){
+				$(this).prop("src","images/"+ n++ +".png");
+				if(n>6) n=1;
+			});
+		});
+		*/
+	});
+</script>
+</head>
+<body>
+<p>아리랑 아리랑 아라리요.</p>
+<p>아리랑 고개로 넘어간다.</p>
+<p>나를 버리고 가시는 님은</p>
+<!-- 버튼을 클릭하면 다음 가사가 각각의 p요소에 보이도록 해보세요 -->
+<input type="button" value="다음가사" id="btn1">
+
+<div>
+	<img src="images/1.png">
+	<img src="images/2.png">
+	<img src="images/3.png">
+</div>
+<input type="button" value="다음이미지" id="btn2">
+<!-- 버튼을 클릭하면 각각의 이미지에 4.png 5.png 6.png가 보이도록 해보세요 -->
+
+<p class="imgbox">
+	<img src="images/1.png">
+	<img src="images/2.png">
+	<img src="images/3.png">
+	<img src="images/4.png">
+	<img src="images/5.png">
+</p>
+<script type="text/javascript">
+let w=150;
+let h=150;
+$(".imgbox img").each(function(){
+		$(this).css({
+			"width":w,
+			"height":h
+		});
+		w=w*1.2;
+		h=h*1.2;
+});
+
+</script>
+</body>
+</html>

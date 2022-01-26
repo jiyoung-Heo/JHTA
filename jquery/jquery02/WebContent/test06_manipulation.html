@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_manipulation.html</title>
+<style>
+	.myimg{width:200px; height:150px; display:none; margin:4px;}
+</style>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+<input type="button" value="이미지추가1" id="btn1">
+<input type="button" value="이미지추가2" id="btn4">
+<input type="button" value="이미지삭제" id="btn2">
+<input type="button" value="이미지 모두삭제" id="btn3">
+<input type="button" value="이미지 추가3(appendTo)" id="btn5">
+<input type="button" value="이미지 추가4(appendTo)" id="btn6">
+<div id="imglist"></div>
+
+<script type="text/javascript">
+	let num=1;
+	$("#btn1").click(function(){//뒤에 추가
+		$("#imglist").append("<img src='images/"+ num++ +".png'>");
+	});
+	$("#btn2").click(function(){//마지막꺼부터 하나씩 지우기
+		$("#imglist img:last").remove();
+	});
+	$("#btn3").click(function(){ //전부지우기
+		$("#imglist").empty();
+	});
+	$("#btn4").click(function(){//앞에 추가
+		$("#imglist").prepend("<img src='images/"+ num++ +".png'>");
+		if(num>=20) num=1;
+	});
+	let n1=1;
+	$("#btn5").click(function(){
+	//	$("<img src='images/"+ n1++ +".png'>").appendTo("#imglist");
+	//$("#imglist").append("<img src='images/"+ n1++ +".png'>").css("border","3px solid green"); //imglist(부모?)에 초록색 보더가 생김
+	$("<img src='images/"+ n1++ +".png'>").appendTo("#imglist").css("border","3px solid green"); //img(부모?) 에 초록색 보더가 생김
+		if(n1>19) n1=1;
+	})
+	let n2=1;
+	$("#btn6").click(function(){
+		$("<img src='images/"+ n2++ +".jpg' class='myimg'>").appendTo("#imglist").hide().fadeIn(500); //hide를 주는 이유 " 일단 안보여야지 나타날 수 있으니까
+		//아니면 스타일에 display :none 줘도됨
+		if(n2==5) n2=1;
+		
+	});
+</script>
+</body>
+</html>

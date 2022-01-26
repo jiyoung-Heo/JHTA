@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src = "../js/jquery-3.6.0.min.js"></script>
+<title>test1.html</title>
+<script type="text/javascript">
+	$(function(){
+		$("#btn1").click(function(){
+			$.ajax({
+				url:"server.jsp",
+				dataType:"json",
+				success:function(d){
+					let info="아이디:"+d.name+"<br>"+
+						"비밀번호:"+d.pwd+"<br>"+
+						"이메일:"+d.email;
+					$("#result").html(info);
+				}
+			})
+		})
+	})
+</script>
+</head>
+<body>
+<input type="button" value="사용자정보조회" id="btn1">
+<div id="result">
+</div>
+</body>
+</html>

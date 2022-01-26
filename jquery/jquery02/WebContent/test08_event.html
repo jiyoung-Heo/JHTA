@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test08_event.html</title>
+<style>
+	.mystyle{
+		background-color:pink;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(function(){
+		/*
+		$("#btn1").click(function(){
+			alert("버튼1클릭");
+		})
+		*/
+		$("#btn1").on('click focus',function(){ //click이랑 동일. 누를때마다 이벤트 발생
+			alert("button1클릭");
+		});
+		$("#btn2").one('click',function(){
+			alert("button2클릭");
+		});
+		/*
+		$("#box").hover(function(){
+			$(this).css("background-color","gray");
+			$(this).append("<h1>Hello jQuery!!!</h1>");
+		},function(){
+			$(this).css("background-color","white");
+			$(this).empty();
+		});
+		$("#box").mouseover(function(){
+			$(this).css("border","3px solid red");
+		});
+		$("#box").mouseout(function(){
+			$(this).css("border","3px solid green")
+		});
+		$("#box").on({
+			mouseover:function(){
+				$(this).css("border","3px solid orange")
+			},
+			mouseout:function(){
+				$(this).css("border","3px solid green")
+			}
+		})
+		*/
+		$("#box").on("mouseover mouseout",function(){
+			$(this).toggleClass("mystyle");
+		})
+		$("img").mouseover(function(){
+			$(this).css("border","3px solid black")
+		})
+	});
+</script>
+</head>
+<body>
+<input type="button" value="버튼1" id="btn1">
+<input type="button" value="버튼2" id="btn2">
+<div id="box" style="width:300px; height:300px; border:3px solid green">
+
+</div>
+
+<div id="box1">
+	<img src="images/1.png">
+	<img src="images/2.png">
+	<img src="images/3.png">
+	<img src="images/4.png">
+</div>
+</body>
+</html>

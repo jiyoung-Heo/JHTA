@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btn1").click(function(){
+		var w=parseInt($("#img").css("width"))+parseInt($("#img").css("width"));
+		var h=parseInt($("#img").css("height"))+parseInt($("#img").css("height"));
+		console.log("w:"+w);
+		console.log("h:"+h);
+		$("#img").css({
+			"width":w,
+			"height":h
+		});
+	});
+});
+</script>
+</head>
+<body>
+<input type="button" value="크기변경" id="btn1">
+<br>
+<img src="images/1.png" id="img" style="width:200px; height:200px; background-color:yellow;">
+</body>
+</html>

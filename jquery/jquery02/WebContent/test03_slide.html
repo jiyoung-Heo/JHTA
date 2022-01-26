@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test03_slide.html</title>
+<style>
+	*{margin:0px; padding:0px;}
+	/* 부모 div는 이미지가 5개 보일 크기(140*5) 설정 */
+	#parent{width:700px;height:200px; background-color:orange;position:relative; left:200px; top:30px;overflow:hidden}
+	/* 자식 div는 이미지가 7개가 들어갈 크기(140*7) 설정 */
+	#child{width:980px; height:200px; position:absolute; left:0px;} /* child는 부모를 기준으로 위치가 잡히는 것*/
+	#child ul li img{width:136px; height:196px; margin:2px}
+	#child ul li{float:left; list-style:none;}
+</style>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(function(){
+		setInterval(() => { //화살표함수 = function() 
+			//1초안 #child를 -140위치로 이동해 보세요
+			let left1=parseInt($("#child").css("left"))-140;
+			let childw=parseInt($("#child").css("width"));
+			let parentw=parseInt($("#parent").css("width"));
+			console.log("childw:"+childw+","+"parentw:"+parentw);
+			$("#child").animate({
+				"left":left1
+			},500,function(){
+				if(left1<=-childw){//소수점이 나올 수도 있어서 ==보다는 <=로 해주는게 좋다 
+					left1=parentw;
+					$(this).css({left:left1},500)
+				}
+			});
+		},2000);
+	});
+</script>
+</head>
+<body>
+<div id="parent">
+	<div id="child">
+		<ul>
+			<li><img src="images/001.jpg"></li>
+			<li><img src="images/002.jpg"></li>
+			<li><img src="images/003.jpg"></li>
+			<li><img src="images/004.jpg"></li>
+			<li><img src="images/005.jpg"></li>
+			<li><img src="images/006.jpg"></li>
+			<li><img src="images/007.jpg"></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2/findid.html</title>
+<script type="text/javascript" src = "../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("input[value='찾기']").click(function() {
+			const email = $("#email").val();
+			$.get("findid.jsp",{"email":email},function(data){
+				console.log(data)
+				$("#result").html(data);
+			},"html")	
+		})
+	})
+</script>
+</head>
+<body>
+<!-- 이메일을 입력받아 해당 아이디를 조회해 보세요. -->
+<h1>아이디찾기</h1>
+이메일입력 <input type="text" name="email" id="email" value="test@"><br>
+<input type="button" value="찾기" >
+<div id="result">
+</div>
+</body>
+</html>
+
+
+

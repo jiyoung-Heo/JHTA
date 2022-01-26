@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test01_traversing.html</title>
+<script type="text/javascript" src = "js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn1").click(function() {
+			//단점: 오류찾기어려움, 2 3---n번째자식 찬을 수 있음
+			//$("div:nth-child("+n+")").css("border","2px xolid green");
+			//$("div:first").css("border","2px xolid green");
+			//단점: 오류찾기쉬움, 2 3번째 자식 찾을 수 없음
+			$("div").first().css("border","2px solid green");
+			$("#pp").find(".aa").css("background-color","yellow");
+			$("#ari").parent().css("background-color","orange");
+			$("#ari").next().css("font-size","30px");
+			$("#ari").next().next().css("color","blue");
+			var length=$("#pp").children().length;
+			console.log("자식 수: "+length)
+			$("#pp").children().each(function(){
+				let html = $(this).html();
+				console.log(html)
+			})
+		})
+			$(".required").focusin(function() {
+				$(this).next().html("필수입력사항입니다.")
+			})
+			$(".required").focusout(function() {
+				if($(this).val()==""){
+					$(this).next().html("필수입력사항입니다.")
+				}else{
+					$(this).next().html("")
+				}
+			})
+			$("#btn2").click(function() {
+				var a = $("#pp").clone();
+				$("#pp1").append(a);
+			})
+	})
+</script>
+</head>
+<body>
+<input type="button" value="노드찾기1" id="btn1">
+<div id="pp">
+	<div id="ari">아리랑</div>
+	<div class="aa">아리랑 고개</div>
+	<div>십리도못가서</div>
+</div>
+<div class="aa">나를 버리고 가시는 님은</div>
+<input type="button" id="btn2" value="복사"><br>
+<div id="pp1">
+</div><br>
+<!-- 필수입력사항에 포커스가 오면 span에 필수입력사항이라고 출력되도록 해보세요 -->
+<form>
+	아이디<input type="text" class="required"><span></span><br>
+	비밀번호<input type="password" class="required"><span></span><br>
+	이메일<input type="text"><span></span><br>
+	<input type="submit" value="가입">
+</form>
+</body>
+</html>

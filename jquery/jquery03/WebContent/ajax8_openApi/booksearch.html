@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>booksearch.html</title>
+<script type="text/javascript" src = "../js/jquery-3.6.0.min.js"></script>
+</head>
+<script type="text/javascript">
+	$(function() {
+		let start =1;
+		$("#btn_search").click(function() {
+			$("#booklist").empty();
+			start=1;
+			let search = $("#search").val();
+			$.get('server.jsp',{"search":search,"start":1},function(data){
+				$(data).find("item").each(function() {
+					let title=$(this).find("title").text();
+					let price=$(this).find("price").text();
+					let img=$(this).find("image").text();
+					let str=`
+						<div>
+							<h2>제목: ${title}</h2>
+							가격: ${price}<br>
+							<img src='${img}'>
+						</div>
+					`;
+					$("#booklist").append(str)
+				})
+			})
+		})
+		$("input[value='더보기']").click(function() {
+			start+=5;
+			let search = $("#search").val();
+			$.get('server.jsp',{"search":search,"start":1},function(data){
+				$(data).find("item").each(function() {
+					let title=$(this).find("title").text();
+					let price=$(this).find("price").text();
+					let img=$(this).find("image").text();
+					let str=`
+						<div>
+							<h2>제목: ${title}</h2>
+							가격: ${price}<br>
+							<img src='${img}'>
+						</div>
+					`;
+					$("#booklist").append(str)
+				})
+			})
+		})
+	})
+</script>
+<body>
+<div id="content">
+	<h1>도서검색</h1>
+	검색어<input type="text" id="search" value="자바">
+	<input type="button" value="찾기" id="btn_search">
+	<div id="booklist"></div>
+	<p><input type="button" value="더보기"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test02_css.html</title>
+<style>
+	.mystyle{
+		width:400px;
+		height:200px;
+		background-color:black;
+		color:white;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			//css값 설정하기 => $("셀렉터").css("속성명","설정값");
+			$("#box1").css("background-color","orange");
+			$("#box1").css("width",400); //그냥 숫자를 주면 px단위로 들어감, 그래서 px단위면 ""를 써줘도 되고 안써ㅏ줘도 됨
+			$("#box1").css("height","200px");
+		});
+		$("#btn2").click(function(){
+			//css값 얻어오기 => let v=$("셀렉터").css("속성명");
+			let w=$("#box1").css("width");
+			let bgcolor=$("#box1").css("background-color");
+			alert("w:"+w +",bgcolor:"+bgcolor);
+			console.log(parseInt(w) +"," +Number("100")); // 단위가 있어도 parseint는 숫자변환가능, number는 단위가 붙어있으면 NaN이 뜨면서 숫자변화 못함 
+		});
+		$("#btn3").click(function(){
+			$("#box1").css({
+				"width":300,
+				"height":300,
+				"background-color":"red"
+			});
+		});
+		$("#btn4").click(function(){
+			//.mystyle 클래스 적용하기
+			$("#box1").addClass("mystyle"); //.mystyle이라고 쓰면 안됨
+		});
+		$("#btn5").click(function(){
+			//.mystyle 클래스 적용하기
+			$("#box1").removeClass("mystyle"); 
+		});
+	});
+</script>
+</head>
+<body>
+<input type="button" value="css변경1" id="btn1">
+<input type="button" value="css값 읽어오기" id="btn2">
+<input type="button" value="css값 변경2" id="btn3">
+<input type="button" value="클래스적용" id="btn4">
+<input type="button" value="클래스삭제 " id="btn5">
+<div id="box1">
+	<h1>Hello jQuery!!</h1>
+</div>
+</body>
+</html>

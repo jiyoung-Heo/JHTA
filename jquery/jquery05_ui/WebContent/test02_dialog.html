@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test02_dialog.html</title>
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<style type="text/css">
+	body{font-size:0.8em;}
+	h1{text-align: center;}
+	input[type='text'],label{margin-bottom: 0.4em;width:95%;}
+</style>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+</head>
+<body>
+<h1 id="open_btn">일정생성</h1>
+<hr>
+<div id="list"></div>
+<div id="box">
+	<div id="dlg" title="일정">
+		<h2>일정정보입력</h2>
+		<label for="ename">일정이름</label>
+		<input type="text" id="ename">
+		<label for="edate">일정날짜</label>
+		<input type="text" id="edate">
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	$("#edate").datepicker({
+		dateFormat: "yy-mm-dd"
+	})
+
+	$("#dlg").dialog({
+		autoOpen: false,
+		buttons: {
+			등록: function(){
+				//$("#list").append("<p>일정이름: " +$("#ename").val()+"<br>날짜: "+$("#edate").val()+"</p>")
+				const ename = $("#ename").val();
+				const edate = $("#edate").val();
+				const str = `
+					<p>
+					일정: ${ename}, 날짜: ${edate}
+					</p>
+				`;
+				 $("#ename").val("");
+				 $("#edate").val("");
+				 $("#list").append(str);
+			},
+			닫기:function(){
+				$("#dlg").dialog("close");
+			}
+		}
+	})
+	$("#open_btn").click(function() {
+		$("#dlg").dialog("open");
+		
+	})
+</script>
+</html>

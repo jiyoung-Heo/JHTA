@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			//let w=parseInt($("#img1").css("width"));
+			let w=$("#img1").width();
+			let h=$("#img1").height();
+			console.log(w+","+h);
+			let w2=w*2;
+			let h2=h*2;
+			$("#img1").animate({
+				"width":w2,
+				"height":h2
+			},1000) //시간 안쓰면 기본 400
+		});
+		let left1=parseInt($("#img1").css("left"));
+		$("#btn2").click(function(){
+		let left=$("#img1").position().left;
+			console.log(left);
+			$("#img1").animate({
+				"left":left+50
+			});
+		});
+		$("#btn3").click(function(){
+			$("#img1").animate({
+				"left":1000
+			},500,function(){
+				$(this).animate({left:0},500) //this가 "#img1"과 동일 
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<input type ="button" value="2배확대" id="btn1"><br>
+<!-- btn2를 클릭하면 현재 위치에서 50px 우측으로  이동하기-->
+<input type ="button" value="이미지 이동하기1" id="btn2">
+<input type ="button" value="이미지 이동하기2" id="btn3">
+<br>
+
+<img src="images/1.png" id="img1" style="position:relative; left:0px;">
+</body>
+</html>

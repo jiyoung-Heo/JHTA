@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test01.html</title>
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#mydate").datepicker({
+			dateFormat:'yy-mm-dd',
+			dayNamesMin:["일","월","화","수","목","금","토"],
+			monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+			showMonthAfterYear: true,
+			yearSuffix:"년"
+		})
+		$("#d").datepicker({
+			dateFormat: "yy-mm-dd",
+			onSelect: function(data) {
+				alert(data)
+			}
+		});
+		$("#mydlg").dialog();
+	});
+</script>
+</head>
+<body>
+	<input type="text" id="mydate">
+	<div id="d"></div>
+	<div id="mydlg" title="나의다이얼로그">
+		<p>김 대표는 이날 오전 서울 소공동 롯데호텔에서 열린 한미일 북핵 수석대표 협의 모두발언에서
+		"우리의 조율되고 실질적인 접근법은 북한과 외교에 열려있고 이를 모색해 나간다는것"이라며 이렇게 말했다.</p> 
+	</div>
+</body>
+</html>

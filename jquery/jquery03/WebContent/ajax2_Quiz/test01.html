@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test01.html</title>
+<script type="text/javascript" src = "../js/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+	.emps{width:400px;height:200px;padding:5px;margin:5px;border:1px solid black;}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			url:"quiz.xml",
+			dataType:"xml",
+			success:function(data){
+				$(data).find("employee").each(function(){
+					let name = $(this).find("firstName").text()+$(this).find("lastName").text()
+					let id = $(this).find("id").text()
+					let result = "<div>이름: "+name+"<br>아이디: "+id+"</div>";
+					$(result).appendTo("#emplist").addClass("emps");
+					$("div[class='emps']").mouseover(function() {
+						$(this).css("background-color", "red")
+					})
+					$("div[class='emps']").mouseout(function() {
+						$(this).css("background-color", "white")
+					})
+				})
+			}
+		})
+	})
+</script>
+</head>
+<body>
+<!-- 
+1. ajax를 이용해서 quiz.html의 모든 사원이름(firstName+lastName)과
+id를 div에 추가되도록 해보세요.
+2. 사원정보에 마우스 오버하면 배경색상이 변경되도록 해보세요.
+ -->
+ <div id="emplist"></</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src = "../js/jquery-3.6.0.min.js"></script>
+<title>ajax7_load.html</title>
+<style type="text/css">
+	.movie{align-content: center;}
+</style>
+</head>
+<script type="text/javascript">
+	$(function(){
+	/*
+		$("input[value='인기상영작']").click(function() {
+			$.ajax({
+				url:"movieList.html", 
+				dataType:"html",
+				success:function(data) {
+				$("#movie1").html(data)
+				}
+			})
+		})
+	*/
+		$("input[value='인기상영작']").click(function() {
+			$("#movie1").load("movieList.html")//movieList.html페이지를 ajax로 삽입하기
+		})
+		$("a").click(function(e) {
+			e.preventDefault();
+			
+			$("#movieinfo").load($(this).prop("href"))})
+	})
+</script>
+<body>
+<h1>우리우리 영화관</h1>
+<!-- 버튼을 클릭하면 movieList.html의 내용을 ajax를 사용해서 div#movie1에 보이도록 해보세요 -->
+<input type="button" value="인기상영작">
+<div id="movie1" class="movie"></div><br><br>
+<!-- a태그를 클릭하면 ajax 사용해서 요청페이지가 div#movieinfo에 보이도록 해보세요. -->
+<a href="movie1.jsp">최신상영작</a>|<a href="movie2.jsp">상영예정작</a>
+<div id="movieinfo">
+</div>
+</body>
+</html>

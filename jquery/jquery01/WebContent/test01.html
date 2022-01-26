@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test01.html</title>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+/*
+	window.onload=function(){
+		let btn1=document.getElementById("btn1");
+		btn1.onclick=function(){
+			alert("버튼클릭")
+		}
+	}
+*/
+
+	$(document).ready(function(){ //window.onload=function(){과 같음 
+		$("#btn1").click(function() { // #:id가 btn1/ 클래스는 .을 쓰면됨  css 셀렉터를 쓰면 됨.
+			alert("button click!");
+		});
+		$("#btn2").click(function(){
+			$("#box1").hide(1000); //화면에서 숨기기. 1000은 1초임. 숫자를 주면 애니메이션 효과가 들어감
+		});
+		$("#btn3").click(function(){
+			$("#box1").show(1000);
+		});
+	});
+	
+</script>
+</head>
+<body>
+<input type="button" value="버튼1" id="btn1">
+<input type="button" value="숨기기" id="btn2">
+<input type="button" value="보이기" id="btn3"> <!-- div를 화면에 보이기 -->
+<input type="button" value="숨기기" id="btn4">
+<input type="button" value="보이기" id="btn5">
+<div id="box1" style="width:300px; height:200px; background-color:green;">
+</div>
+<script type="text/javascript">
+	$("#btn4").click(function(){
+		$("#box1").slideUp(400); //위로 말려올라감
+	});
+	$("#btn5").click(function(){
+		$("#box1").slideDown(400); //위에서 아래로 말려내려옴
+	});
+</script>
+</body>
+</html>

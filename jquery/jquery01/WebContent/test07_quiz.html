@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test07_quiz.html</title>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#ckbox").click(function(){
+	//	var recname=$("#recname").prop("value");
+	//	var recadd=$("#recadd").prop("value");
+	if($("#ckbox").prop("checked")){
+		$("#recname").val($("#name").val());
+		$("#recadd").val($("#address").val());
+	}else{
+		$("#recname").val("");
+		$("#recadd").val("");
+	}
+	});
+	$("#plus").click(function(){
+		var num1=parseInt($("#num1").val());
+		var num2=parseInt($("#num2").val()); 
+		$("#sum").val(num1+num2);
+	});
+});
+</script>
+
+회원 이름<input type="text" id="name"><br>
+회원 주소<input type="text" id="address"><br>
+<input type="checkbox" id="ckbox">위와동일<br>
+받는 사람<input type="text" id="recname"><br>
+받는 주소<input type="text" id="recadd">
+<br>
+<br>
+<input type="text" id="num1">+
+<input type="text" id="num2">=
+<input type="text" id="sum">
+<input type="button" value="합구하기" id="plus">
+</body>
+</html>

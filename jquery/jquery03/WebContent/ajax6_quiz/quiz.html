@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src = "../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn1").click(function() {
+		/*	$.ajax({
+				url:"getinfo.jsp",
+				dataType:"json",
+				data:{"num":$("#num").val()},
+				success:function(i){
+					if(i.find==true){
+					let info = "<br>이름: "+i.name
+					+"<br>전화번호: "+i.phone
+					+"<br>주소: "+i.addr
+					+"<br>가입일: "+i.regdate;
+					$("#memInfo").html(info);
+					}else{
+						$("#memInfo").html("조회된 정보가 없습니다.");
+					}
+				}
+			})*/
+			$.getJSON("getinfo.jsp",{"num":$("#num").val()},function(i){
+				if(i.find==true){
+					let info = "<br>이름: "+i.name
+					+"<br>전화번호: "+i.phone
+					+"<br>주소: "+i.addr
+					+"<br>가입일: "+i.regdate;
+					$("#memInfo").html(info);
+					}else{
+						$("#memInfo").html("조회된 정보가 없습니다.");
+					}
+			})
+		})
+		$("#btn2").click(function() {
+			$("#userlist").empty()
+			$.getJSON("userlist.jsp","", function(i) {
+				$(i).each(function(data,user){
+					let info = "<div>아이디: "+user.id+"비밀번호: "+user.pwd+"이메일: "+user.email+"<br></div>";
+					$("#userlist").append(info)
+				})
+				//for (var j = 0; j < i.length; j++) {
+				//let info = "<div>아이디: "+i[j].id+"비밀번호: "+i[j].pwd+"이메일: "+i[j].email+"<br></div>";
+				//	$("#userlist").append(info)
+				//}
+			})
+		})
+	})
+</script>
+<title>quiz.html</title>
+</head>
+<body>
+회원번호<input type="text" id="num">
+<input type="button" value="조회" id="btn1">
+<!-- 회원번호에 해당하는 회원정보가 div#memInfo에 출력되도록 해보세요. -->
+<div id="memInfo">
+</div>
+<!-- userlist.jsp에서 전체 회원정보를 받아와 div#userlist에 출력되도록 해보세요 -->
+<input type="button" value="전체회원정보" id="btn2">
+<div id="userlist">
+</div>
+</body>
+</html>

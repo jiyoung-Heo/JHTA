@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test09_effects.html</title>
+<style type="text/css">
+	.mystyle{
+		border:3px solid green;
+		background-color:yellow;
+	}
+	#img2{
+		position:relative;
+		left:0px;
+		top:10px;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(function(){//앞에 $(document).ready가 생략된 형태
+	
+	let num=2;
+	$("#btn1").click(function(){
+		//$("#box").fadeOut(1000);
+		$("#box").fadeOut(400,function(){
+			//alert("숨기기 완료");
+			$("#img1").prop("src","images/"+ num++ +".png");
+			if(num>=20) num1;
+		});
+	});
+	$("#btn2").click(function(){
+		$("#box").fadeIn(1000, function(){
+			$("#img1").css("background-color","green");
+		});
+	});
+	$("#btn3").click(function(){
+		$("#box").slideToggle(1000); //시간을 지정하지 않으면 기본은 400 (0.4초) //토글은 번갈아가면서 작업해줌
+	});
+	$("#btn4").click(function(){
+		$("#box").toggleClass("mystyle");
+	});
+	
+	$("#btn5").click(function(){
+		//$("#img2").css("left","500px");
+		$("#img2").animate({
+			"left":500
+			"width":300
+		},1000);
+	})
+});
+	
+</script>
+</head>
+<body>
+<input type="button" value="숨기기" id="btn1">
+<input type="button" value="보이기" id="btn2">
+<input type="button" value="보였다 숨겼다가 하기" id="btn3">
+<input type="button" value="클래스적용/해제" id="btn4">
+<div id="box" style="width:300px; height:200px;"> <!-- 여기에 스타일 준게 우선순위가 높음 -->
+	<img src="images/1.png" id="img1">
+</div>
+<!-- btn3을 클릭하면 img2의 위치(left)를 500px으로 이동하도록 해보세요  -->
+<input type="button" value="이미지 이동" id="btn5">
+<!-- 포지션이 absolute or relative여야지만 left가 먹음 -->
+<img src="images/2.png" id="img2">
+</body>
+</html>

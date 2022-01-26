@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test02_form.html</title>
+<script type="text/javascript" src = "js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("form .required").focusout(function() {
+				$(this).next().html("")
+		})
+		/*
+		$("form").submit(function(){
+			const id=$("#id").val();
+			if(id==""){
+				$("#id").next().html("아이디를 입력하세요")
+				return false;
+			}
+			비밀번호와 비밀번호확인이 일치하는지 검사해보세요
+			if($("input[name='pwd']").val()!=$("input[name='pwd1']").val()){
+				$("input[name='pwd1']").next().html("비밀번호가 일치하지 않습니다.")
+				return false;
+			}
+			return true;
+		})
+		*/
+		$("form").submit(function(e) {
+			//e.preventDefault();//이벤트가 발생시 수행되는 기능 막기
+			//입력된 값들을 쿼리스트링으로 얻어오기
+			var params=$(this).serialize();
+			console.log(params);
+			if($("#id").val()==""){
+				alert("아이디를입력하세요");
+				e.preventDefault()//submit하지않기
+			}
+		})
+	})
+</script>
+</head>
+<body>
+<form action="join.jsp">
+	아이디(*)<input type="text" name = "id" id="id"class="required"><span></span><br>
+	비밀번호(*)<input type="password" name = "pwd"class="required"><span></span><br>
+	비밀번호확인(*)<input type="password" name = "pwd1"class="required"><span></span><br>
+	이메일<input type="text" name = "email"class="required"><br>
+	<input type="submit" value="가입">
+</form>
+</body>
+</html>

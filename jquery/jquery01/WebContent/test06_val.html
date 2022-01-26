@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test06_val.html</title>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn1").click(function(){
+		//var name=$("#name").prop("value");
+		//attr은 사용자가 변경한 값을 인지를 못해서 prop을 써야함
+	//	console.log("name:"+name);
+		//$("#result").prop("value",name+"입니다");
+		let name=$("#name").val();//value 속성값 얻어오기
+		$("#result").val("당신의 이름은"+name+"이군요");
+	});
+	$("#box1").html("<h1>반갑습니다</h1>"); //html태그를 넣으면 html로 해석되어 보여짐
+	$("#box1").text("<h1>반갑습니다</h1>"); //innerText속성으로 설정
+});
+</script>
+</head>
+<body>
+<!-- 확인버튼을 누르면 입력된 이름을 result에 출력되도록 해보세요 -->
+이름<input type="text" id="name">
+<input type="button" value="확인" id="btn1"><br>
+<input type="text" readonly="readonly" id="result" size="30">
+<div id="box1">
+
+</div>
+</body>
+</html>

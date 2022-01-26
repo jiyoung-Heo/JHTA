@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test03_quiz.html</title>
+<style>
+	.mystyle{
+		width:400px;
+		height:200px;
+		background-color:orange;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			$("#box1").addClass("mystyle");
+		});
+		$("#btn2").click(function(){
+			$("#box2").addClass("mystyle");
+		})
+	});
+</script>
+</head>
+<body>
+
+<div id="box1">
+	<h1>hello jQuery!!!!</h1>
+</div>
+<input type="button" value="css변경1" id="btn1">
+<input type="button" value="css복사" id="btn2">
+<div id="box2">
+	<h1>안녕 제이쿼리!!!</h1>
+</div>
+</body>
+</html>

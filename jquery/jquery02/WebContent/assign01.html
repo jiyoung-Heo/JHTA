@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>assign01.html</title>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("input").click(function(){
+		let rvalue=$(this).val();
+		console.log(rvalue);
+		if(rvalue=="red"){
+			$("#colorbox").css("background-color","red")
+		}else if(rvalue=="blue"){
+			$("#colorbox").css("background-color","blue")
+		}else if(rvalue=="yellow"){
+			$("#colorbox").css("background-color","yellow")
+		}else if(rvalue=="green"){
+			$("#colorbox").css("background-color","green")
+		}
+	})
+})
+</script>
+
+</head>
+<body>
+<div id="colorbox" style="width:300px; height:300px;">
+<input type="radio" id="radio1" name="color" value="red">빨강
+<input type="radio" id="radio2" name="color" value="blue">파랑
+<input type="radio" id="radio3" name="color" value="yellow">노랑
+<input type="radio" id="radio4" name="color" value="green">초록
+
+</div>
+</body>
+</html>

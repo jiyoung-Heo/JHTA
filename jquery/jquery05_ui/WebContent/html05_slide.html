@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<title>html05_slide.html</title>
+<style type="text/css">
+	*{margin:0px;padding:0px;}
+	#slide ul li img{width:185px; height:240px;}
+	#slide ul li {list-style:none; float:left;}
+	/*부모div는 이미지가 5개 보여질 크기*/
+	#slidebox{width:925px; height:240px; position:relative; background-color: green; overflow: hidden; left:200px; top:20px}
+	/*자식div는 이미지가 10개 보여질 크기*/
+	#slide{width:1850px; height:240px; position:absolute; left:0px;}
+	.btnbox{position:relative; left:500px; top:100px;}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$("a").button();
+		$("#slide").draggable({
+			containment: [-725,20,200,20],
+			axis: "x" //x축으로만 이동
+		})
+		$("#btnPrev").click(function(e) {
+			e.preventDefault();
+			var left = parseInt($("#slide").css("left"))
+			if(left)
+			if(left>=0) return;
+			left+=185;
+			left=Math.floor(left/185.0)*185;
+			$("#slide").animate({left:left},500)
+		})
+		$("#btnNext").click(function(e) {
+			e.preventDefault();
+			var left = parseInt($("#slide").css("left"))
+			if(left<=-925) return;
+			left-=185;
+			left=Math.ceil(left/185.0)*185;
+			$("#slide").animate({left:left},500)
+		})
+	})
+</script>
+</head>
+<body>
+<div id="slidebox">
+	<div id="slide">
+		<ul>
+			<li><img src = "images/slide1.png"></li>
+			<li><img src = "images/slide2.png"></li>
+			<li><img src = "images/slide3.png"></li>
+			<li><img src = "images/slide4.png"></li>
+			<li><img src = "images/slide5.png"></li>
+			<li><img src = "images/slide6.png"></li>
+			<li><img src = "images/slide7.png"></li>
+			<li><img src = "images/slide8.png"></li>
+			<li><img src = "images/slide9.png"></li>
+			<li><img src = "images/slide10.png"></li>
+		</ul>
+	</div>
+</div>
+<div class="btnbox">
+	<a href="#" id="btnPrev">이전이미지</a>
+	<a href="#" id="btnNext">다음이미지</a>
+</div>
+</body>
+</html>

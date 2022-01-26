@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src = "../js/jquery-3.6.0.min.js"></script>
+<title>home1.html</title>
+</head>
+<body>
+<select size="5">
+	<option name = "img" id="boy">소년이미지</option>
+	<option name = "img" id="coffee">커피이미지</option>
+	<option name = "img" id="dog">강아지이미지</option>
+</select><br>
+<div id="selectImg">
+</div>
+<input type="button" value="담기">
+<div id="result1"></div> 
+<br>
+</body>
+<script type="text/javascript">
+	$("option[name='img']").click(function() {
+		$("#selectImg").empty();
+		if($(this).val()=="소년이미지"){
+			$("#selectImg").append("<img src = '../images/1.png' >")
+		}else if($(this).val()=="커피이미지"){
+			$("#selectImg").append("<img src = '../images/2.png'>")
+		}else if($(this).val()=="강아지이미지"){
+			$("#selectImg").append("<img src='../images/3.png'>")
+		}
+	})
+	$("input[value='담기']").click(function() {
+		$("#result1").append($("#selectImg img"));
+	$("#result1 img").dblclick(function() {
+		console.log("d")
+		$(this).empty();
+	})
+	})
+</script>
+</html>

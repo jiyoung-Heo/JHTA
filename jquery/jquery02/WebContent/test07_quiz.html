@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test07_quiz.html</title>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btn1").click(function(){
+		let num=3;
+		var opt=$("#list").val();
+		console.log(opt);
+		//$("box").append("<img src='images/"+num++ +".png'>");
+		$("#box").append("<img src='"+opt+"'>"); //변수는 +로 연결해주기
+		if(num>7) num=3;
+	});
+	$("#btn2").click(function(){
+		$("#box").empty();
+	})
+	
+})
+
+</script>
+</head>
+<body>
+<select size="5" style="width:200px" id="list">
+	<option value="images/3.png">강아지1</option>
+	<option value="images/4.png">강아지2</option>
+	<option value="images/5.png">강아지3</option>
+	<option value="images/6.png">강아지4</option>
+</select><br>
+<!-- 담기버튼을  클릭하면 선택 이미지가 div#box에 추가되도록 해보세요-->
+<input type="button" value="담기" id="btn1">
+<!-- 비우기 버튼을 클릭하면 div#box의 요소가 삭제되도록 해보세요 -->
+<input type="button" value="비우기" id="btn2">
+<div id="box">
+</div>
+</body>
+</html>

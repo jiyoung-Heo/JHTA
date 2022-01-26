@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<title>test04_drag.html</title>
+<script type="text/javascript">
+	$(function() {
+		$("#box1").draggable();
+		$("#img1").draggable({
+			//containment: "parent"
+			containment: [0,0,1000,500], //x1,y1,x2,y2의 좌표.
+			stop: function(){
+				alert("이동완료!")
+			}
+		});
+	})
+</script>
+</head>
+<body>
+<div id="box1" style="width:200px;height: 100px; background-color: orange;">
+나를 드래그하세요
+</div>
+<div id="box2" style="width:500px;height: 500px; background-color: yellow;">
+<img src = "images/1.png" id="img1">
+</div>
+</body>
+</html>

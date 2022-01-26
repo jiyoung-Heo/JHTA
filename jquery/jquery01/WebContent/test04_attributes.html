@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test04_attributes.html</title>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			//src속성 변경
+			$("#img1").attr("src","images/2.png");
+			//설정된 src속성값 얻어오기
+			let src=$("#img1").attr("src");
+			console.log("src:"+src);
+		});
+		$("#btn2").click(function(){
+			$("#img1").prop("src","images/1.png");
+			let src=$("#img1").prop("src");
+			console.log("src:"+src);
+		});
+		//$("#chk1").prop("checked",true); //바로 아래도 똑같음
+		$("#chk1").attr("checked","checked");
+		$("#btn3").click(function(){
+			let chk1=$("#chk1").prop("checked"); //true, false
+			console.log("prop checked:"+chk1);
+			let chk2=$("#chk1").attr("checked"); //undefined : 체크여부 못읽어옴
+			console.log("attr checked:"+chk2); 
+			//만약 checkbox checked="checked"로 설정해도 attr은 체크박스의 맨 처음 값만 불러오기 때문에 체크여부와 상관없이 계속 checked만 불러옴
+		});
+	});
+</script>
+</head>
+<body>
+<input type ="button" value="이미지 변경1" id="btn1">
+<input type ="button" value="이미지 변경2" id="btn2"><br>
+<img src="images/1.png" id="img1">
+<input type="button" value="체크상태" id="btn3">
+상태<input type="checkbox" id="chk1">
+</body>
+</html>

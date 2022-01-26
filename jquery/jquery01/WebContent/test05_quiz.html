@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test05_quiz.html</title>
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+<input type="button" value="이미지 서로 바꾸기" id="btn1"><br>
+<img src="images/1.png" id="img1">
+<img src="images/2.png" id="img2">
+<!-- 체크박스가 체크되면 text가 활성화되고 체크해제되면  text가 비활성화 되도록 해보세요 -->
+기타사항 <input type="checkbox" id="chk1">
+<input type="text" id="desc" size="50">
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			if($("#img1").attr("src")=="images/1.png"){
+				$("#img1").prop("src","images/2.png");
+				$("#img2").prop("src","images/1.png");
+			}else{
+				$("#img1").prop("src","images/1.png");
+				$("#img2").prop("src","images/2.png");
+			}
+		});
+		/*
+		선생님 답
+		$(document).ready(function(){
+			$("#btn1").click(function(){
+				let src=$("#img1").prop("src");
+				$("#img1").prop("src",$("#img2").prop("src"));
+				$("#img1").prop("src",src);
+			});
+		*/
+		$("#chk1").click(function(){
+			
+		//let chk=$("#chk1").prop("checked");
+			if($(this).prop("checked")==false){ //만약 true면 ==true 안써줘도 됨, #chk1 을 this로 대체가능
+				$("#desc").prop("disabled",true);//활성화 하기
+				$("#desc").focus(); //포커스 주기
+			}else{
+				$("#desc").prop("disabled",false);
+			}
+		})
+	});
+
+</script>
+</body>
+</html>
